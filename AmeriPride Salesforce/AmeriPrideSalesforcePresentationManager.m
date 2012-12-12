@@ -12,6 +12,9 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
 
 @implementation AmeriPrideSalesforcePresentationManager
 
+@synthesize presentations = _presentations;
+@synthesize presentation = _presentation;
+
 # pragma mark -
 # pragma mark init
 
@@ -19,6 +22,8 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
     @synchronized(self) {
         if (_defaultManager == nil) {
             _defaultManager = [[AmeriPrideSalesforcePresentationManager alloc] init];
+            
+            [_defaultManager initialize];
         }
     }
     return _defaultManager;
@@ -37,29 +42,53 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
     return self;
 }
 
+- (void)initialize {
+    NSString *packagePath = [[NSBundle mainBundle] pathForResource:@"Demo" ofType:@"apppkg"];
+    NSString *packagePlistPath = [packagePath stringByAppendingPathComponent:@"/Package.plist"];
+    NSDictionary *packageDict = [[NSDictionary alloc] initWithContentsOfFile:packagePlistPath];
+    NSArray *packagePresentations = [packageDict valueForKey:@"presentations"];
+    
+    NSMutableArray *presentations = [NSMutableArray array];
+    
+    for (NSDictionary *packagePresentationDict in packagePresentations) {
+        AmeriPrideSalesforcePresentation *presentation = [[AmeriPrideSalesforcePresentation alloc] init];
+        [presentation setTitle:[packagePresentationDict valueForKey:@"title"]];
+        
+        NSURL *baseURL = [NSURL URLWithString:[packagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSURL *URL = [[baseURL URLByAppendingPathComponent:[presentation title]] URLByAppendingPathExtension:@"html"];
+        NSURL *PDFURL = [[baseURL URLByAppendingPathComponent:[packagePresentationDict valueForKey:@"pdf"]] URLByAppendingPathExtension:@"pdf"];
+        
+        [presentation setUrl:URL];
+        [presentation setPdf:[NSData dataWithContentsOfFile:[PDFURL path]]];
+        
+        [presentations addObject:presentation];
+    }
+    
+    if ([presentations count] > 0) {
+        [self setPresentations:[presentations copy]];
+        [self setPresentation:[presentations objectAtIndex:0]];
+    }
+}
+
 # pragma mark -
 # pragma mark presentations
 
 - (NSString *)titleForPresentation {
-    return @"";
+    return [_presentation title];
 }
 
-- (NSString *)HTMLForPresentation {
-    return @"";
-}
-
-- (NSURL *)baseURLForPresentation {
-    return [NSURL URLWithString:@"/"];
+- (NSURL *)URLForPresentation {
+    return [_presentation url];
 }
 
 - (NSData *)PDFDataForPresentation {
-    return nil;
+    return [_presentation pdf];
 }
 
 # pragma mark -
 # pragma mark update
 
-- (void)updatePresentation
+- (void)updatePresentations:(id)sender
 {
     /*NSURL *url = [NSURL URLWithString:@"http://127.0.0.1/~wsc/template.Presentation.zip"];
      NSURLRequest *request = [NSURLRequest requestWithURL:url];

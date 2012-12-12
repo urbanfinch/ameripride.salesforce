@@ -13,9 +13,8 @@
 		4521A39E1662CB9900FF1BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4521A39C1662CB9900FF1BB3 /* InfoPlist.strings */; };
 		4521A3A01662CB9900FF1BB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A39F1662CB9900FF1BB3 /* main.m */; };
 		4521A3A41662CB9900FF1BB3 /* AmeriPrideSalesforceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3A31662CB9900FF1BB3 /* AmeriPrideSalesforceAppDelegate.m */; };
-		4521A3AD1662CB9900FF1BB3 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4521A3AB1662CB9900FF1BB3 /* MainStoryboard.storyboard */; };
+		4521A3AD1662CB9900FF1BB3 /* AmeriPrideSalesforceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4521A3AB1662CB9900FF1BB3 /* AmeriPrideSalesforceStoryboard.storyboard */; };
 		4521A3D21662D17F00FF1BB3 /* AmeriPrideSalesforceWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3CD1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.m */; };
-		4521A3D81662D2C800FF1BB3 /* AmeriPrideSalesforceEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3D71662D2C800FF1BB3 /* AmeriPrideSalesforceEditViewController.m */; };
 		4521A3DB1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */; };
 		4521A3DD1662D59A00FF1BB3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4521A3DC1662D59A00FF1BB3 /* Settings.bundle */; };
 		45934EC816642209006F371B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45934EC716642209006F371B /* MessageUI.framework */; };
@@ -33,6 +32,15 @@
 		45DB6609166FF01900668A06 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DB6608166FF01900668A06 /* Default-Landscape~ipad.png */; };
 		45DB660B166FF01B00668A06 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DB660A166FF01B00668A06 /* Default-Landscape@2x~ipad.png */; };
 		45DB66231671459500668A06 /* Splash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 45DB66221671459500668A06 /* Splash.mp4 */; };
+		45DBBFE11672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBBFE01672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.m */; };
+		45DBC0191676FBC100B04BAB /* Ameripride.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0171676FBC100B04BAB /* Ameripride.png */; };
+		45DBC01A1676FBC100B04BAB /* Ameripride@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0181676FBC100B04BAB /* Ameripride@2x.png */; };
+		45DBC02E1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBC02D1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m */; };
+		45DBC0331677F7BC00B04BAB /* Ameripride320.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0311677F7BC00B04BAB /* Ameripride320.png */; };
+		45DBC0341677F7BC00B04BAB /* Ameripride64.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0321677F7BC00B04BAB /* Ameripride64.png */; };
+		45DBC0361677F7E600B04BAB /* Demo.apppkg in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0351677F7E600B04BAB /* Demo.apppkg */; };
+		45DBC04316780FD800B04BAB /* List@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC03F16780FD800B04BAB /* List@2x.png */; };
+		45DBC04416780FD800B04BAB /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC04016780FD800B04BAB /* List.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,11 +54,9 @@
 		4521A3A11662CB9900FF1BB3 /* AmeriPride Salesforce-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AmeriPride Salesforce-Prefix.pch"; sourceTree = "<group>"; };
 		4521A3A21662CB9900FF1BB3 /* AmeriPrideSalesforceAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceAppDelegate.h; sourceTree = "<group>"; };
 		4521A3A31662CB9900FF1BB3 /* AmeriPrideSalesforceAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceAppDelegate.m; sourceTree = "<group>"; };
-		4521A3AC1662CB9900FF1BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4521A3AC1662CB9900FF1BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/AmeriPrideSalesforceStoryboard.storyboard; sourceTree = "<group>"; };
 		4521A3CC1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceWebViewController.h; sourceTree = "<group>"; };
 		4521A3CD1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceWebViewController.m; sourceTree = "<group>"; };
-		4521A3D61662D2C800FF1BB3 /* AmeriPrideSalesforceEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceEditViewController.h; sourceTree = "<group>"; };
-		4521A3D71662D2C800FF1BB3 /* AmeriPrideSalesforceEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceEditViewController.m; sourceTree = "<group>"; };
 		4521A3D91662D34500FF1BB3 /* AmeriPrideSalesforceWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceWebView.h; sourceTree = "<group>"; };
 		4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceWebView.m; sourceTree = "<group>"; };
 		4521A3DC1662D59A00FF1BB3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -71,6 +77,18 @@
 		45DB6608166FF01900668A06 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		45DB660A166FF01B00668A06 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		45DB66221671459500668A06 /* Splash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splash.mp4; sourceTree = "<group>"; };
+		45DBBFDF1672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforcePresentationTableViewController.h; sourceTree = "<group>"; };
+		45DBBFE01672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforcePresentationTableViewController.m; sourceTree = "<group>"; };
+		45DBC0171676FBC100B04BAB /* Ameripride.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride.png; sourceTree = "<group>"; };
+		45DBC0181676FBC100B04BAB /* Ameripride@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ameripride@2x.png"; sourceTree = "<group>"; };
+		45DBC0241677EAD000B04BAB /* AmeriPrideSalesforceNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceNotifications.h; sourceTree = "<group>"; };
+		45DBC02C1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforcePresentation.h; sourceTree = "<group>"; };
+		45DBC02D1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforcePresentation.m; sourceTree = "<group>"; };
+		45DBC0311677F7BC00B04BAB /* Ameripride320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride320.png; sourceTree = "<group>"; };
+		45DBC0321677F7BC00B04BAB /* Ameripride64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride64.png; sourceTree = "<group>"; };
+		45DBC0351677F7E600B04BAB /* Demo.apppkg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo.apppkg; sourceTree = "<group>"; };
+		45DBC03F16780FD800B04BAB /* List@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "List@2x.png"; sourceTree = "<group>"; };
+		45DBC04016780FD800B04BAB /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +141,12 @@
 			children = (
 				4521A3A21662CB9900FF1BB3 /* AmeriPrideSalesforceAppDelegate.h */,
 				4521A3A31662CB9900FF1BB3 /* AmeriPrideSalesforceAppDelegate.m */,
-				4521A3AB1662CB9900FF1BB3 /* MainStoryboard.storyboard */,
+				4521A3AB1662CB9900FF1BB3 /* AmeriPrideSalesforceStoryboard.storyboard */,
 				4521A39A1662CB9900FF1BB3 /* Supporting Files */,
 				4521A3D41662D1F900FF1BB3 /* Controllers */,
 				4521A3D51662D20A00FF1BB3 /* Views */,
+				45DBC0301677EC6800B04BAB /* Models */,
+				45DBC0221677EABA00B04BAB /* Misc */,
 			);
 			path = "AmeriPride Salesforce";
 			sourceTree = "<group>";
@@ -135,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				45934F1E1667FD96006F371B /* Images */,
+				45DBC0351677F7E600B04BAB /* Demo.apppkg */,
 				4521A3DC1662D59A00FF1BB3 /* Settings.bundle */,
 				4521A39B1662CB9900FF1BB3 /* AmeriPride Salesforce-Info.plist */,
 				4521A39C1662CB9900FF1BB3 /* InfoPlist.strings */,
@@ -151,8 +172,8 @@
 				45934EFD1664314A006F371B /* AmeriPrideSalesforcePresentationManager.m */,
 				4521A3CC1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.h */,
 				4521A3CD1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.m */,
-				4521A3D61662D2C800FF1BB3 /* AmeriPrideSalesforceEditViewController.h */,
-				4521A3D71662D2C800FF1BB3 /* AmeriPrideSalesforceEditViewController.m */,
+				45DBBFDF1672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.h */,
+				45DBBFE01672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.m */,
 				45934F35166836F0006F371B /* AmeriPrideSalesforceSplashViewController.h */,
 				45934F36166836F0006F371B /* AmeriPrideSalesforceSplashViewController.m */,
 			);
@@ -171,6 +192,12 @@
 		45934F1E1667FD96006F371B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				45DBC0171676FBC100B04BAB /* Ameripride.png */,
+				45DBC0181676FBC100B04BAB /* Ameripride@2x.png */,
+				45DBC0311677F7BC00B04BAB /* Ameripride320.png */,
+				45DBC0321677F7BC00B04BAB /* Ameripride64.png */,
+				45DBC03F16780FD800B04BAB /* List@2x.png */,
+				45DBC04016780FD800B04BAB /* List.png */,
 				45DB66221671459500668A06 /* Splash.mp4 */,
 				45934F211667FF4C006F371B /* Icon-72.png */,
 				45934F221667FF4C006F371B /* Icon-72@2x.png */,
@@ -184,6 +211,23 @@
 				45DB6604166FF01000668A06 /* Default-Portrait~ipad.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		45DBC0221677EABA00B04BAB /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				45DBC0241677EAD000B04BAB /* AmeriPrideSalesforceNotifications.h */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		45DBC0301677EC6800B04BAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45DBC02C1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.h */,
+				45DBC02D1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4521A39E1662CB9900FF1BB3 /* InfoPlist.strings in Resources */,
-				4521A3AD1662CB9900FF1BB3 /* MainStoryboard.storyboard in Resources */,
+				4521A3AD1662CB9900FF1BB3 /* AmeriPrideSalesforceStoryboard.storyboard in Resources */,
 				4521A3DD1662D59A00FF1BB3 /* Settings.bundle in Resources */,
 				45934F271667FF4D006F371B /* Icon-72.png in Resources */,
 				45934F281667FF4D006F371B /* Icon-72@2x.png in Resources */,
@@ -253,6 +297,13 @@
 				45DB6609166FF01900668A06 /* Default-Landscape~ipad.png in Resources */,
 				45DB660B166FF01B00668A06 /* Default-Landscape@2x~ipad.png in Resources */,
 				45DB66231671459500668A06 /* Splash.mp4 in Resources */,
+				45DBC0191676FBC100B04BAB /* Ameripride.png in Resources */,
+				45DBC01A1676FBC100B04BAB /* Ameripride@2x.png in Resources */,
+				45DBC0331677F7BC00B04BAB /* Ameripride320.png in Resources */,
+				45DBC0341677F7BC00B04BAB /* Ameripride64.png in Resources */,
+				45DBC0361677F7E600B04BAB /* Demo.apppkg in Resources */,
+				45DBC04316780FD800B04BAB /* List@2x.png in Resources */,
+				45DBC04416780FD800B04BAB /* List.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +333,11 @@
 				4521A3A01662CB9900FF1BB3 /* main.m in Sources */,
 				4521A3A41662CB9900FF1BB3 /* AmeriPrideSalesforceAppDelegate.m in Sources */,
 				4521A3D21662D17F00FF1BB3 /* AmeriPrideSalesforceWebViewController.m in Sources */,
-				4521A3D81662D2C800FF1BB3 /* AmeriPrideSalesforceEditViewController.m in Sources */,
 				4521A3DB1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m in Sources */,
 				45934EFE1664314A006F371B /* AmeriPrideSalesforcePresentationManager.m in Sources */,
 				45934F37166836F0006F371B /* AmeriPrideSalesforceSplashViewController.m in Sources */,
+				45DBBFE11672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.m in Sources */,
+				45DBC02E1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,12 +352,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4521A3AB1662CB9900FF1BB3 /* MainStoryboard.storyboard */ = {
+		4521A3AB1662CB9900FF1BB3 /* AmeriPrideSalesforceStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4521A3AC1662CB9900FF1BB3 /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = AmeriPrideSalesforceStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

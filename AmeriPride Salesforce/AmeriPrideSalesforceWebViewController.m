@@ -7,14 +7,27 @@
 //
 
 #import "AmeriPrideSalesforceWebViewController.h"
+#import "AmeriPrideSalesforceAppDelegate.h"
 
 @implementation AmeriPrideSalesforceWebViewController
 
 @synthesize webView = _webView;
+@synthesize toggleButton = _toggleButton;
 @synthesize actionButton = _actionButton;
-@synthesize editButton = _editButton;
 @synthesize actionSheet = _actionSheet;
 @synthesize printInteractionController = _printInteractionController;
+@synthesize masterVisible = _masterVisible;
+
+# pragma mark -
+# pragma mark init
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setMasterVisible:NO];
+    }
+    return self;
+}
 
 # pragma mark -
 # pragma mark awake
@@ -26,6 +39,11 @@
                selector:@selector(preferencesChanged:)
                    name:NSUserDefaultsDidChangeNotification
                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(presentationChanged:)
+                                                 name:AmeriPrideSalesforcePresentationChangedNotification
+                                               object:nil];
 }
 
 # pragma mark -
@@ -35,14 +53,22 @@
 {
     [super viewDidAppear:animated];
 	
-    [self update:self];
+    [self load:self];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return (toInterfaceOrientation == (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight));
 }
 
 # pragma mark -
 # pragma mark notifications
 
 - (void)preferencesChanged:(NSNotification *)notification {
-    [self update:self];
+    [self load:self];
+}
+
+- (void)presentationChanged:(NSNotification *)notification {
+    [self load:self];
 }
 
 # pragma mark -
@@ -107,16 +133,27 @@
     }
 }
 
-- (void)update:(id)sender {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
-        [[self navigationItem] setRightBarButtonItem:_editButton animated:NO];
-    } else {
-        [[self navigationItem] setRightBarButtonItem:nil animated:NO];
-    }
-    
+- (void)load:(id)sender {
     AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
     
-    [_webView loadHTMLString:[presentationManager HTMLForPresentation] baseURL:[presentationManager baseURLForPresentation]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
+        double delayInSeconds = 0.2;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit();"]);
+        });
+    }
+}
+
+- (void)toggle:(id)sender {
+    UISplitViewController *splitViewController = (UISplitViewController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    
+    _masterVisible = !_masterVisible;
+    
+    [splitViewController willRotateToInterfaceOrientation:splitViewController.interfaceOrientation duration:0];
+    [splitViewController.view setNeedsLayout];
 }
 
 # pragma mark -
@@ -140,6 +177,17 @@
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+# pragma mark -
+# pragma mark UISplitViewDelegate
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    if (_masterVisible) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end

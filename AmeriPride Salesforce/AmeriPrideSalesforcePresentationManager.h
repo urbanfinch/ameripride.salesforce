@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AmeriPrideSalesforcePresentation.h"
 
 @interface AmeriPrideSalesforcePresentationManager : NSObject
+
+@property (nonatomic, strong) NSArray *presentations;
+@property (nonatomic, strong) AmeriPrideSalesforcePresentation *presentation;
 
 + (AmeriPrideSalesforcePresentationManager *)defaultManager;
 
 - (NSString *)titleForPresentation;
-- (NSString *)HTMLForPresentation;
-- (NSURL *)baseURLForPresentation;
+- (NSURL *)URLForPresentation;
 - (NSData *)PDFDataForPresentation;
 
-- (void)updatePresentation;
+- (void)initialize;
+- (IBAction)updatePresentations:(id)sender;
 
 @end

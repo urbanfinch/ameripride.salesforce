@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AmeriPrideSalesforceSplashViewController.h"
+#import "AmeriPrideSalesforceWebViewController.h"
 
 @interface AmeriPrideSalesforceAppDelegate : UIResponder <UIApplicationDelegate>
 
