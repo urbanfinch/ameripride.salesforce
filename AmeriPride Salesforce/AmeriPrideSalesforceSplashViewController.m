@@ -28,19 +28,21 @@
 # pragma mark view
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 # pragma mark -
 # pragma mark notifications
 
 - (void)playbackDidFinish:(NSNotification *)notification {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 @end

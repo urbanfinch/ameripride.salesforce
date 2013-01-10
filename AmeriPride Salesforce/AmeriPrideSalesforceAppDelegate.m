@@ -23,10 +23,17 @@
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     splitViewController.delegate = (id)navigationController.topViewController;
     
+    [self presentSplashScreen];
+    
+    return YES;
+}
+
+- (void)presentSplashScreen {
+    [self.window.rootViewController.view setHidden:YES];
+    
     NSURL *splashURL = [[NSBundle mainBundle] URLForResource:@"Splash" withExtension:@"mp4"];
     
     AmeriPrideSalesforceSplashViewController *splashViewController = [[AmeriPrideSalesforceSplashViewController alloc] initWithContentURL:splashURL];
-    [splashViewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     splashViewController.moviePlayer.controlStyle = MPMovieControlStyleNone;
     splashViewController.moviePlayer.scalingMode = MPMovieScalingModeFill;
     [splashViewController.moviePlayer.backgroundView  addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default-Landscape~ipad.png"]]];
@@ -34,14 +41,10 @@
     [splashViewController.moviePlayer prepareToPlay];
     [splashViewController.moviePlayer play];
     
-    /*double delayInSeconds = 0.1;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){*/
-        [self.window.rootViewController setModalPresentationStyle:UIModalPresentationFullScreen];
-        [self.window.rootViewController presentModalViewController:splashViewController animated:YES];
-    //});
-    
-    return YES;
+    [self.window.rootViewController setModalPresentationStyle:UIModalPresentationFullScreen];
+    [self.window.rootViewController presentViewController:splashViewController animated:NO completion:^{
+        [self.window.rootViewController.view setHidden:NO];
+    }];
 }
 
 @end

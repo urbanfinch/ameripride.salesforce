@@ -44,7 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4521A38F1662CB9900FF1BB3 /* AmeriPride Salesforce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AmeriPride Salesforce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4521A38F1662CB9900FF1BB3 /* AmeriPride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmeriPride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4521A3931662CB9900FF1BB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4521A3951662CB9900FF1BB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4521A3971662CB9900FF1BB3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,7 +119,7 @@
 		4521A3901662CB9900FF1BB3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4521A38F1662CB9900FF1BB3 /* AmeriPride Salesforce.app */,
+				4521A38F1662CB9900FF1BB3 /* AmeriPride.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 			);
 			name = "AmeriPride Salesforce";
 			productName = AmeriPride;
-			productReference = 4521A38F1662CB9900FF1BB3 /* AmeriPride Salesforce.app */;
+			productReference = 4521A38F1662CB9900FF1BB3 /* AmeriPride.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -422,7 +422,7 @@
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "AmeriPride Salesforce";
+				PRODUCT_NAME = AmeriPride;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -434,7 +434,7 @@
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "AmeriPride Salesforce";
+				PRODUCT_NAME = AmeriPride;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
