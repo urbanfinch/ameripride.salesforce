@@ -43,25 +43,34 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
 }
 
 - (void)initialize {
-    NSString *packagePath = [[NSBundle mainBundle] pathForResource:@"Demo" ofType:@"apppkg"];
-    NSString *packagePlistPath = [packagePath stringByAppendingPathComponent:@"/Package.plist"];
-    NSDictionary *packageDict = [[NSDictionary alloc] initWithContentsOfFile:packagePlistPath];
-    NSArray *packagePresentations = [packageDict valueForKey:@"presentations"];
-    
     NSMutableArray *presentations = [NSMutableArray array];
     
-    for (NSDictionary *packagePresentationDict in packagePresentations) {
-        AmeriPrideSalesforcePresentation *presentation = [[AmeriPrideSalesforcePresentation alloc] init];
-        [presentation setTitle:[packagePresentationDict valueForKey:@"title"]];
+    NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+
+    NSArray *cachesContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:cachesDirectory error:NULL];
+    for (int count = 0; count < (int)[cachesContent count]; count++)
+    {
+        NSString *packagePath = [cachesDirectory stringByAppendingPathComponent:[cachesContent objectAtIndex:count]];
+        NSString *packagePlistPath = [packagePath stringByAppendingPathComponent:@"/package.plist"];
+        NSDictionary *packageDict = [[NSDictionary alloc] initWithContentsOfFile:packagePlistPath];
+        NSArray *packagePresentations = [packageDict valueForKey:@"presentations"];
         
-        NSURL *baseURL = [NSURL URLWithString:[packagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-        NSURL *URL = [[baseURL URLByAppendingPathComponent:[presentation title]] URLByAppendingPathExtension:@"html"];
-        NSURL *PDFURL = [[baseURL URLByAppendingPathComponent:[packagePresentationDict valueForKey:@"pdf"]] URLByAppendingPathExtension:@"pdf"];
+        for (NSDictionary *packagePresentationDict in packagePresentations) {
+            AmeriPrideSalesforcePresentation *presentation = [[AmeriPrideSalesforcePresentation alloc] init];
+            [presentation setTitle:[packagePresentationDict valueForKey:@"title"]];
+            [presentation setFilename:[packagePresentationDict valueForKey:@"filename"]];
+            
+            NSURL *baseURL = [NSURL URLWithString:[packagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            NSURL *URL = [[baseURL URLByAppendingPathComponent:[presentation filename]] URLByAppendingPathExtension:@"html"];
+            NSURL *PDFURL = [[baseURL URLByAppendingPathComponent:[presentation filename]] URLByAppendingPathExtension:@"pdf"];
+            
+            [presentation setUrl:URL];
+            [presentation setPdf:[NSData dataWithContentsOfFile:[PDFURL path]]];
+            
+            [presentations addObject:presentation];
+        }
         
-        [presentation setUrl:URL];
-        [presentation setPdf:[NSData dataWithContentsOfFile:[PDFURL path]]];
-        
-        [presentations addObject:presentation];
+        count++;
     }
     
     if ([presentations count] > 0) {
@@ -83,41 +92,6 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
 
 - (NSData *)PDFDataForPresentation {
     return [_presentation pdf];
-}
-
-# pragma mark -
-# pragma mark update
-
-- (void)updatePresentations:(id)sender
-{
-    /*NSURL *url = [NSURL URLWithString:@"http://127.0.0.1/~wsc/template.Presentation.zip"];
-     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-     NSURLResponse *response = nil;
-     NSError *error = nil;
-     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-     NSLog(@"%d", [httpResponse statusCode]);
-     
-     if ([httpResponse statusCode] == 404) // Presentation will be deleted and the default interface will be used ...
-     {
-     NSString *path = [documentsDirectory stringByAppendingPathComponent:@"template.Presentation"];
-     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-     return;
-     }
-     else if (error)
-     {
-     NSLog(@"%@", error);
-     }
-     
-     BOOL didWriteData = [data writeToFile:zipFile atomically:YES];
-     if (didWriteData)
-     {
-     BOOL success = [SSZipArchive unzipFileAtPath:zipFile toDestination:documentsDirectory];
-     if (!success)
-     {
-     NSLog(@"failed to unzip file.");
-     }
-     }*/
 }
 
 @end

@@ -138,6 +138,16 @@
     
     [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"clearMode"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"clearMode"];
+        
+        double delayInSeconds = 0.2;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            NSLog(@"Clearing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.clear();"]);
+        });
+    }
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
         double delayInSeconds = 0.2;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);

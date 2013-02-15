@@ -17,6 +17,8 @@
 		4521A3D21662D17F00FF1BB3 /* AmeriPrideSalesforceWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3CD1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.m */; };
 		4521A3DB1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */; };
 		4521A3DD1662D59A00FF1BB3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4521A3DC1662D59A00FF1BB3 /* Settings.bundle */; };
+		454B184816CC990C00210347 /* Ameripride320.png in Resources */ = {isa = PBXBuildFile; fileRef = 454B184616CC990C00210347 /* Ameripride320.png */; };
+		454B184916CC990C00210347 /* Ameripride64.png in Resources */ = {isa = PBXBuildFile; fileRef = 454B184716CC990C00210347 /* Ameripride64.png */; };
 		45934EC816642209006F371B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45934EC716642209006F371B /* MessageUI.framework */; };
 		45934EFE1664314A006F371B /* AmeriPrideSalesforcePresentationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45934EFD1664314A006F371B /* AmeriPrideSalesforcePresentationManager.m */; };
 		45934F271667FF4D006F371B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 45934F211667FF4C006F371B /* Icon-72.png */; };
@@ -26,6 +28,13 @@
 		45934F2B1667FF4D006F371B /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 45934F251667FF4C006F371B /* iTunesArtwork.png */; };
 		45934F2C1667FF4D006F371B /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45934F261667FF4C006F371B /* iTunesArtwork@2x.png */; };
 		45934F37166836F0006F371B /* AmeriPrideSalesforceSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45934F36166836F0006F371B /* AmeriPrideSalesforceSplashViewController.m */; };
+		45B3DB3816CED04200003594 /* AmeriPrideSalesforceDocumentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B3DB3716CED04200003594 /* AmeriPrideSalesforceDocumentManager.m */; };
+		45B3DB4616CEE09D00003594 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 45B3DB3C16CEE09D00003594 /* ioapi.c */; };
+		45B3DB4716CEE09D00003594 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 45B3DB3E16CEE09D00003594 /* mztools.c */; };
+		45B3DB4816CEE09D00003594 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45B3DB4016CEE09D00003594 /* unzip.c */; };
+		45B3DB4916CEE09D00003594 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 45B3DB4216CEE09D00003594 /* zip.c */; };
+		45B3DB4A16CEE09D00003594 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 45B3DB4516CEE09D00003594 /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		45B3DB4C16CEE0CC00003594 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B3DB4B16CEE0CC00003594 /* libz.1.2.5.dylib */; };
 		45BB817E16697AF700D2FFD4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BB817D16697AF700D2FFD4 /* MediaPlayer.framework */; };
 		45DB6605166FF01000668A06 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DB6604166FF01000668A06 /* Default-Portrait~ipad.png */; };
 		45DB6607166FF01500668A06 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DB6606166FF01500668A06 /* Default-Portrait@2x~ipad.png */; };
@@ -36,15 +45,12 @@
 		45DBC0191676FBC100B04BAB /* Ameripride.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0171676FBC100B04BAB /* Ameripride.png */; };
 		45DBC01A1676FBC100B04BAB /* Ameripride@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0181676FBC100B04BAB /* Ameripride@2x.png */; };
 		45DBC02E1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBC02D1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m */; };
-		45DBC0331677F7BC00B04BAB /* Ameripride320.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0311677F7BC00B04BAB /* Ameripride320.png */; };
-		45DBC0341677F7BC00B04BAB /* Ameripride64.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0321677F7BC00B04BAB /* Ameripride64.png */; };
-		45DBC0361677F7E600B04BAB /* Demo.apppkg in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC0351677F7E600B04BAB /* Demo.apppkg */; };
 		45DBC04316780FD800B04BAB /* List@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC03F16780FD800B04BAB /* List@2x.png */; };
 		45DBC04416780FD800B04BAB /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DBC04016780FD800B04BAB /* List.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4521A38F1662CB9900FF1BB3 /* AmeriPride Salesforce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AmeriPride Salesforce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4521A38F1662CB9900FF1BB3 /* AmeriPride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmeriPride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4521A3931662CB9900FF1BB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4521A3951662CB9900FF1BB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4521A3971662CB9900FF1BB3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +66,8 @@
 		4521A3D91662D34500FF1BB3 /* AmeriPrideSalesforceWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceWebView.h; sourceTree = "<group>"; };
 		4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceWebView.m; sourceTree = "<group>"; };
 		4521A3DC1662D59A00FF1BB3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		454B184616CC990C00210347 /* Ameripride320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride320.png; sourceTree = "<group>"; };
+		454B184716CC990C00210347 /* Ameripride64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride64.png; sourceTree = "<group>"; };
 		45934EC716642209006F371B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		45934EFC1664314A006F371B /* AmeriPrideSalesforcePresentationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforcePresentationManager.h; sourceTree = "<group>"; };
 		45934EFD1664314A006F371B /* AmeriPrideSalesforcePresentationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforcePresentationManager.m; sourceTree = "<group>"; };
@@ -71,6 +79,20 @@
 		45934F261667FF4C006F371B /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		45934F35166836F0006F371B /* AmeriPrideSalesforceSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceSplashViewController.h; sourceTree = "<group>"; };
 		45934F36166836F0006F371B /* AmeriPrideSalesforceSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceSplashViewController.m; sourceTree = "<group>"; };
+		45B3DB3616CED04200003594 /* AmeriPrideSalesforceDocumentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceDocumentManager.h; sourceTree = "<group>"; };
+		45B3DB3716CED04200003594 /* AmeriPrideSalesforceDocumentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceDocumentManager.m; sourceTree = "<group>"; };
+		45B3DB3B16CEE09D00003594 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		45B3DB3C16CEE09D00003594 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		45B3DB3D16CEE09D00003594 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		45B3DB3E16CEE09D00003594 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		45B3DB3F16CEE09D00003594 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		45B3DB4016CEE09D00003594 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		45B3DB4116CEE09D00003594 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		45B3DB4216CEE09D00003594 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		45B3DB4316CEE09D00003594 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		45B3DB4416CEE09D00003594 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		45B3DB4516CEE09D00003594 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		45B3DB4B16CEE0CC00003594 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		45BB817D16697AF700D2FFD4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		45DB6604166FF01000668A06 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		45DB6606166FF01500668A06 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
@@ -84,9 +106,6 @@
 		45DBC0241677EAD000B04BAB /* AmeriPrideSalesforceNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceNotifications.h; sourceTree = "<group>"; };
 		45DBC02C1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforcePresentation.h; sourceTree = "<group>"; };
 		45DBC02D1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforcePresentation.m; sourceTree = "<group>"; };
-		45DBC0311677F7BC00B04BAB /* Ameripride320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride320.png; sourceTree = "<group>"; };
-		45DBC0321677F7BC00B04BAB /* Ameripride64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride64.png; sourceTree = "<group>"; };
-		45DBC0351677F7E600B04BAB /* Demo.apppkg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo.apppkg; sourceTree = "<group>"; };
 		45DBC03F16780FD800B04BAB /* List@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "List@2x.png"; sourceTree = "<group>"; };
 		45DBC04016780FD800B04BAB /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +120,7 @@
 				4521A3981662CB9900FF1BB3 /* CoreGraphics.framework in Frameworks */,
 				45934EC816642209006F371B /* MessageUI.framework in Frameworks */,
 				45BB817E16697AF700D2FFD4 /* MediaPlayer.framework in Frameworks */,
+				45B3DB4C16CEE0CC00003594 /* libz.1.2.5.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +139,7 @@
 		4521A3901662CB9900FF1BB3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4521A38F1662CB9900FF1BB3 /* AmeriPride Salesforce.app */,
+				4521A38F1662CB9900FF1BB3 /* AmeriPride.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +152,7 @@
 				4521A3971662CB9900FF1BB3 /* CoreGraphics.framework */,
 				45934EC716642209006F371B /* MessageUI.framework */,
 				45BB817D16697AF700D2FFD4 /* MediaPlayer.framework */,
+				45B3DB4B16CEE0CC00003594 /* libz.1.2.5.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				45934F1E1667FD96006F371B /* Images */,
-				45DBC0351677F7E600B04BAB /* Demo.apppkg */,
 				4521A3DC1662D59A00FF1BB3 /* Settings.bundle */,
 				4521A39B1662CB9900FF1BB3 /* AmeriPride Salesforce-Info.plist */,
 				4521A39C1662CB9900FF1BB3 /* InfoPlist.strings */,
@@ -168,6 +188,8 @@
 		4521A3D41662D1F900FF1BB3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				45B3DB3616CED04200003594 /* AmeriPrideSalesforceDocumentManager.h */,
+				45B3DB3716CED04200003594 /* AmeriPrideSalesforceDocumentManager.m */,
 				45934EFC1664314A006F371B /* AmeriPrideSalesforcePresentationManager.h */,
 				45934EFD1664314A006F371B /* AmeriPrideSalesforcePresentationManager.m */,
 				4521A3CC1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.h */,
@@ -194,8 +216,8 @@
 			children = (
 				45DBC0171676FBC100B04BAB /* Ameripride.png */,
 				45DBC0181676FBC100B04BAB /* Ameripride@2x.png */,
-				45DBC0311677F7BC00B04BAB /* Ameripride320.png */,
-				45DBC0321677F7BC00B04BAB /* Ameripride64.png */,
+				454B184616CC990C00210347 /* Ameripride320.png */,
+				454B184716CC990C00210347 /* Ameripride64.png */,
 				45DBC03F16780FD800B04BAB /* List@2x.png */,
 				45DBC04016780FD800B04BAB /* List.png */,
 				45DB66221671459500668A06 /* Splash.mp4 */,
@@ -213,9 +235,36 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		45B3DB3916CEE09D00003594 /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				45B3DB3A16CEE09D00003594 /* minizip */,
+				45B3DB4416CEE09D00003594 /* ZipArchive.h */,
+				45B3DB4516CEE09D00003594 /* ZipArchive.mm */,
+			);
+			path = ZipArchive;
+			sourceTree = "<group>";
+		};
+		45B3DB3A16CEE09D00003594 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				45B3DB3B16CEE09D00003594 /* crypt.h */,
+				45B3DB3C16CEE09D00003594 /* ioapi.c */,
+				45B3DB3D16CEE09D00003594 /* ioapi.h */,
+				45B3DB3E16CEE09D00003594 /* mztools.c */,
+				45B3DB3F16CEE09D00003594 /* mztools.h */,
+				45B3DB4016CEE09D00003594 /* unzip.c */,
+				45B3DB4116CEE09D00003594 /* unzip.h */,
+				45B3DB4216CEE09D00003594 /* zip.c */,
+				45B3DB4316CEE09D00003594 /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
 		45DBC0221677EABA00B04BAB /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				45B3DB3916CEE09D00003594 /* ZipArchive */,
 				45DBC0241677EAD000B04BAB /* AmeriPrideSalesforceNotifications.h */,
 			);
 			name = Misc;
@@ -248,7 +297,7 @@
 			);
 			name = "AmeriPride Salesforce";
 			productName = AmeriPride;
-			productReference = 4521A38F1662CB9900FF1BB3 /* AmeriPride Salesforce.app */;
+			productReference = 4521A38F1662CB9900FF1BB3 /* AmeriPride.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -299,11 +348,10 @@
 				45DB66231671459500668A06 /* Splash.mp4 in Resources */,
 				45DBC0191676FBC100B04BAB /* Ameripride.png in Resources */,
 				45DBC01A1676FBC100B04BAB /* Ameripride@2x.png in Resources */,
-				45DBC0331677F7BC00B04BAB /* Ameripride320.png in Resources */,
-				45DBC0341677F7BC00B04BAB /* Ameripride64.png in Resources */,
-				45DBC0361677F7E600B04BAB /* Demo.apppkg in Resources */,
 				45DBC04316780FD800B04BAB /* List@2x.png in Resources */,
 				45DBC04416780FD800B04BAB /* List.png in Resources */,
+				454B184816CC990C00210347 /* Ameripride320.png in Resources */,
+				454B184916CC990C00210347 /* Ameripride64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +369,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "versionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:3:DefaultValue $versionNumber ($buildNumber)\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/Settings.bundle/Root.plist";
+			shellScript = "versionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:4:DefaultValue $versionNumber ($buildNumber)\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/Settings.bundle/Root.plist";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -338,6 +386,12 @@
 				45934F37166836F0006F371B /* AmeriPrideSalesforceSplashViewController.m in Sources */,
 				45DBBFE11672F25A00B04BAB /* AmeriPrideSalesforcePresentationTableViewController.m in Sources */,
 				45DBC02E1677EC6200B04BAB /* AmeriPrideSalesforcePresentation.m in Sources */,
+				45B3DB3816CED04200003594 /* AmeriPrideSalesforceDocumentManager.m in Sources */,
+				45B3DB4616CEE09D00003594 /* ioapi.c in Sources */,
+				45B3DB4716CEE09D00003594 /* mztools.c in Sources */,
+				45B3DB4816CEE09D00003594 /* unzip.c in Sources */,
+				45B3DB4916CEE09D00003594 /* zip.c in Sources */,
+				45B3DB4A16CEE09D00003594 /* ZipArchive.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +476,7 @@
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "AmeriPride Salesforce";
+				PRODUCT_NAME = AmeriPride;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -434,7 +488,7 @@
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "AmeriPride Salesforce";
+				PRODUCT_NAME = AmeriPride;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

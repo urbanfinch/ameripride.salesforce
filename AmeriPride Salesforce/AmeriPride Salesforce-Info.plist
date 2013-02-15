@@ -6,6 +6,26 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>Ameripride320</string>
+				<string>Ameripride64</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>AmeriPride Presentation</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.acwrightdesign.${PRODUCT_NAME:rfc1034identifier}.appdz</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -38,15 +58,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>219</string>
+	<string>298</string>
 	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UIInterfaceOrientation</key>
 	<string>UIInterfaceOrientationLandscapeRight</string>
-	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>AmeriPrideSalesforceStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -61,26 +79,26 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
-			<key>UITypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>apppkg</string>
-				</array>
-			</dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.composite-content</string>
-				<string>com.apple.package</string>
+				<string>public.archive</string>
+				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>AmeriPride Presentation Package</string>
+			<string>AmeriPride Presentation</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.acwrightdesign.AmeriPride-Presentation-Package</string>
+			<string>com.acwrightdesign.${PRODUCT_NAME:rfc1034identifier}.appdz</string>
 			<key>UTTypeSize320IconFile</key>
 			<string>Ameripride320</string>
 			<key>UTTypeSize64IconFile</key>
 			<string>Ameripride64</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>appdz</string>
+				<key>public.mime-type</key>
+				<string>application/appdz</string>
+			</dict>
 		</dict>
 	</array>
 </dict>

@@ -11,6 +11,7 @@
 @implementation AmeriPrideSalesforcePresentation
 
 @synthesize title = _title;
+@synthesize filename = _filename;
 @synthesize pdf = _pdf;
 @synthesize url = _url;
 

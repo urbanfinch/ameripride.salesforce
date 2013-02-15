@@ -17,7 +17,7 @@
     self = [super initWithContentURL:contentURL];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(playbackDidFinish)
+                                                 selector:@selector(playbackDidFinish:)
                                                      name:MPMoviePlayerPlaybackDidFinishNotification
                                                    object:[self moviePlayer]];
     }
@@ -41,6 +41,12 @@
 # pragma mark notifications
 
 - (void)playbackDidFinish:(NSNotification *)notification {
-    [self dismissModalViewControllerAnimated:YES];
+    UIStoryboard *authStoryboard = [UIStoryboard storyboardWithName:@"AmeriPrideSalesforceStoryboard" bundle:nil];
+    UISplitViewController *splitViewController = [authStoryboard instantiateInitialViewController];
+    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+    splitViewController.delegate = (id)navigationController.topViewController;
+    
+    [[[self view] window] setRootViewController:splitViewController];
+    [[[self view] window] makeKeyAndVisible];
 }
 @end

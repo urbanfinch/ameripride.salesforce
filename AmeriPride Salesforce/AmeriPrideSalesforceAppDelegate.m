@@ -17,16 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self.window makeKeyAndVisible];
-    
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    splitViewController.delegate = (id)navigationController.topViewController;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     NSURL *splashURL = [[NSBundle mainBundle] URLForResource:@"Splash" withExtension:@"mp4"];
     
     AmeriPrideSalesforceSplashViewController *splashViewController = [[AmeriPrideSalesforceSplashViewController alloc] initWithContentURL:splashURL];
-    [splashViewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     splashViewController.moviePlayer.controlStyle = MPMovieControlStyleNone;
     splashViewController.moviePlayer.scalingMode = MPMovieScalingModeFill;
     [splashViewController.moviePlayer.backgroundView  addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default-Landscape~ipad.png"]]];
@@ -34,12 +29,29 @@
     [splashViewController.moviePlayer prepareToPlay];
     [splashViewController.moviePlayer play];
     
-    /*double delayInSeconds = 0.1;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){*/
-        [self.window.rootViewController setModalPresentationStyle:UIModalPresentationFullScreen];
-        [self.window.rootViewController presentModalViewController:splashViewController animated:YES];
-    //});
+    [self.window setRootViewController:splashViewController];
+    [self.window makeKeyAndVisible];
+    
+    NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
+    if (url != nil && [url isFileURL]) {
+        [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+    }
+    
+    [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+    [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+    [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
     
     return YES;
 }

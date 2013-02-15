@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AmeriPrideSalesforceDocumentManager.h"
 #import "AmeriPrideSalesforceSplashViewController.h"
 #import "AmeriPrideSalesforceWebViewController.h"
 

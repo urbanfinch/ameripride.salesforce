@@ -21,6 +21,5 @@
 - (NSData *)PDFDataForPresentation;
 
 - (void)initialize;
-- (IBAction)updatePresentations:(id)sender;
 
 @end
