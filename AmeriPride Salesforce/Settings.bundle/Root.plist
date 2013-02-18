@@ -16,17 +16,7 @@
 			<key>Key</key>
 			<string>editMode</string>
 			<key>Title</key>
-			<string>Enter Editing Mode On Next Launch</string>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
-			<false/>
-			<key>Key</key>
-			<string>clearMode</string>
-			<key>Title</key>
-			<string>Clear Edited Data On Next Launch</string>
+			<string>Edit Mode</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 		</dict>
@@ -38,7 +28,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>1.0 (298)</string>
+			<string>1.0 (310)</string>
 			<key>Key</key>
 			<string>version</string>
 			<key>Title</key>

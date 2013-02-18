@@ -69,8 +69,6 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
             
             [presentations addObject:presentation];
         }
-        
-        count++;
     }
     
     if ([presentations count] > 0) {

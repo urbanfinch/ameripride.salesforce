@@ -19,13 +19,15 @@
 @property (nonatomic, strong) UIActionSheet *actionSheet;
 @property (nonatomic, strong) UIPrintInteractionController *printInteractionController;
 @property (nonatomic, assign) BOOL masterVisible;
+@property (nonatomic, assign) BOOL editing;
 
-- (void)preferencesChanged:(NSNotification *)notification;
 - (void)presentationChanged:(NSNotification *)notification;
 
 - (IBAction)action:(id)sender;
 - (IBAction)email:(id)sender;
 - (IBAction)print:(id)sender;
+- (IBAction)edit:(id)sender;
+- (IBAction)clear:(id)sender;
 - (IBAction)load:(id)sender;
 - (IBAction)toggle:(id)sender;
 

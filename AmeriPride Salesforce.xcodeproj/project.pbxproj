@@ -369,7 +369,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "versionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:4:DefaultValue $versionNumber ($buildNumber)\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/Settings.bundle/Root.plist";
+			shellScript = "versionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/AmeriPride\\ Salesforce-Info.plist\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:3:DefaultValue $versionNumber ($buildNumber)\" ${PROJECT_DIR}/AmeriPride\\ Salesforce/Settings.bundle/Root.plist";
 		};
 /* End PBXShellScriptBuildPhase section */
 

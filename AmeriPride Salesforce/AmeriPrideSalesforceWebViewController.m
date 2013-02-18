@@ -25,6 +25,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setMasterVisible:NO];
+        [self setEditing:NO];
     }
     return self;
 }
@@ -34,11 +35,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-               selector:@selector(preferencesChanged:)
-                   name:NSUserDefaultsDidChangeNotification
-                 object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(presentationChanged:)
@@ -88,6 +84,12 @@
         _actionSheet = [[UIActionSheet alloc] init];
         [_actionSheet addButtonWithTitle:@"E-Mail"];
         [_actionSheet addButtonWithTitle:@"Print"];
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
+            [_actionSheet addButtonWithTitle:@"Toggle Editing"];
+            [_actionSheet addButtonWithTitle:@"Reset Editing"];
+        }
+        
         [_actionSheet setDelegate:self];
         [_actionSheet showFromBarButtonItem:sender animated:YES];
     }
@@ -133,28 +135,24 @@
     }
 }
 
+- (void)edit:(id)sender {
+    if (_editing) {
+        [self setEditing:NO];
+         NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit('false');"]);
+    } else {
+        [self setEditing:YES];
+         NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit('true');"]);
+    }
+}
+
+- (void)clear:(id)sender {
+    NSLog(@"Clearing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.clear();"]);
+}
+
 - (void)load:(id)sender {
     AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
     
     [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"clearMode"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"clearMode"];
-        
-        double delayInSeconds = 0.2;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            NSLog(@"Clearing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.clear();"]);
-        });
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
-        double delayInSeconds = 0.2;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit();"]);
-        });
-    }
 }
 
 - (void)toggle:(id)sender {
@@ -176,6 +174,12 @@
             break;
         case 1:
             [self print:_actionButton];
+            break;
+        case 2:
+            [self edit:_actionButton];
+            break;
+        case 3:
+            [self clear:_actionButton];
             break;
         default:
             break;
