@@ -8,4 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
+# define AmeriPrideSalesforceCacheRebuildCompleteNotification @"kAmeriPrideSalesforceCacheRebuildCompleteNotification"
+# define AmeriPrideSalesforcePresentationsDidInitializeNotification @"kAmeriPrideSalesforcePresentationsDidInitializeNotification"
 # define AmeriPrideSalesforcePresentationChangedNotification @"kAmeriPrideSalesforcePresentationChangedNotification"

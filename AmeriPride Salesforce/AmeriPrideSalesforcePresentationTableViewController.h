@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AmeriPrideSalesforceNotifications.h"
+#import "AmeriPrideSalesforceDocumentManager.h"
 #import "AmeriPrideSalesforcePresentationManager.h"
 
 @interface AmeriPrideSalesforcePresentationTableViewController : UITableViewController
+
+@property UIActivityIndicatorView *activityIndicator;
+@property IBOutlet UIBarButtonItem *activityButton;
+@property IBOutlet UIBarButtonItem *refreshButton;
+
+- (IBAction)refresh:(id)sender;
+- (IBAction)reload:(id)sender;
 
 @end

@@ -10,9 +10,18 @@
 
 @implementation AmeriPrideSalesforcePresentationTableViewController
 
+@synthesize activityIndicator = _activityIndicator;
+@synthesize activityButton = _activityButton;
+@synthesize refreshButton = _refreshButton;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reload:)
+                                                 name:AmeriPrideSalesforcePresentationsDidInitializeNotification
+                                               object:nil];
 
     self.clearsSelectionOnViewWillAppear = NO;
 }
@@ -20,6 +29,29 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return (toInterfaceOrientation == (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight));
+}
+
+# pragma mark -
+# pragma mark actions
+
+- (void)refresh:(id)sender {
+    if (_activityButton == nil)
+    {
+        _activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20,20)];
+        _activityButton = [[UIBarButtonItem alloc]initWithCustomView:_activityIndicator];
+    }
+    
+    self.navigationItem.rightBarButtonItem = _activityButton;
+    [_activityIndicator startAnimating];
+    
+    [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
+}
+
+- (void)reload:(id)sender {
+    [self.tableView reloadData];
+    
+    [_activityIndicator stopAnimating];
+    self.navigationItem.rightBarButtonItem = _refreshButton;
 }
 
 # pragma mark - 

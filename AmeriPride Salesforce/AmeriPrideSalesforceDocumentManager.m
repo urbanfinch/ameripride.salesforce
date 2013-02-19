@@ -65,6 +65,13 @@ static AmeriPrideSalesforceDocumentManager *_defaultManager = nil;
 }
 
 # pragma mark -
+# pragma mark notification
+
+- (void)postRebuildDocumentCacheNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceCacheRebuildCompleteNotification object:self];
+}
+
+# pragma mark -
 # pragma mark rebuild
 
 - (void)rebuildDocumentCache {
@@ -82,7 +89,6 @@ static AmeriPrideSalesforceDocumentManager *_defaultManager = nil;
             if (![fileManager removeItemAtURL:contentURL error:&error]) {
                 NSLog(@"Could not remove file at path: %@", contentURL);
             }
-            count++;
         }
         
         ZipArchive *za = [[ZipArchive alloc] init];
@@ -97,9 +103,9 @@ static AmeriPrideSalesforceDocumentManager *_defaultManager = nil;
                     [za UnzipCloseFile];
                 }
             }
-            
-            count++;
         }
+        
+        [self performSelectorOnMainThread:@selector(postRebuildDocumentCacheNotification) withObject:nil waitUntilDone:NO];
     });
 }
 

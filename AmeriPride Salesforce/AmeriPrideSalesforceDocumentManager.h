@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AmeriPrideSalesforceNotifications.h"
 #import "ZipArchive.h"
 
 @interface AmeriPrideSalesforceDocumentManager : NSObject
@@ -15,5 +16,6 @@
 
 - (void)openDocumentURL:(NSURL *)url;
 - (void)rebuildDocumentCache;
+- (void)postRebuildDocumentCacheNotification;
 
 @end

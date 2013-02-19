@@ -23,6 +23,11 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
         if (_defaultManager == nil) {
             _defaultManager = [[AmeriPrideSalesforcePresentationManager alloc] init];
             
+            [[NSNotificationCenter defaultCenter] addObserver:_defaultManager
+                                                     selector:@selector(initialize)
+                                                         name:AmeriPrideSalesforceCacheRebuildCompleteNotification
+                                                       object:nil];
+            
             [_defaultManager initialize];
         }
     }
@@ -48,6 +53,7 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
     NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 
     NSArray *cachesContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:cachesDirectory error:NULL];
+    
     for (int count = 0; count < (int)[cachesContent count]; count++)
     {
         NSString *packagePath = [cachesDirectory stringByAppendingPathComponent:[cachesContent objectAtIndex:count]];
@@ -65,7 +71,7 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
             NSURL *PDFURL = [[baseURL URLByAppendingPathComponent:[presentation filename]] URLByAppendingPathExtension:@"pdf"];
             
             [presentation setUrl:URL];
-            [presentation setPdf:[NSData dataWithContentsOfFile:[PDFURL path]]];
+            [presentation setPdf:PDFURL];
             
             [presentations addObject:presentation];
         }
@@ -75,6 +81,8 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
         [self setPresentations:[presentations copy]];
         [self setPresentation:[presentations objectAtIndex:0]];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforcePresentationsDidInitializeNotification object:self];
 }
 
 # pragma mark -
@@ -89,7 +97,7 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
 }
 
 - (NSData *)PDFDataForPresentation {
-    return [_presentation pdf];
+    return [NSData dataWithContentsOfFile:[[_presentation pdf] path]];
 }
 
 @end

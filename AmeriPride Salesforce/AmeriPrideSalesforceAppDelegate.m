@@ -37,9 +37,8 @@
     NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
     if (url != nil && [url isFileURL]) {
         [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+        [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
     }
-    
-    [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
     
     return YES;
 }

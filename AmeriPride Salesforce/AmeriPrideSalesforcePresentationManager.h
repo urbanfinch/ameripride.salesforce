@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AmeriPrideSalesforceNotifications.h"
 #import "AmeriPrideSalesforcePresentation.h"
 
 @interface AmeriPrideSalesforcePresentationManager : NSObject

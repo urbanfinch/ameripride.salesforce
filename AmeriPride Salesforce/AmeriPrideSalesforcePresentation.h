@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *filename;
-@property (nonatomic, strong) NSData *pdf;
+@property (nonatomic, strong) NSURL *pdf;
 @property (nonatomic, strong) NSURL *url;
 
 @end
