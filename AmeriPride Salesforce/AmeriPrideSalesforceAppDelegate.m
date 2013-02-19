@@ -21,6 +21,20 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    [self presentSplashScreen];
+    
+    NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
+    if (url != nil && [url isFileURL]) {
+        [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+        [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
+    }
+    
+    return YES;
+}
+
+- (void)presentSplashScreen {
+    [self.window.rootViewController.view setHidden:YES];
+    
     NSURL *splashURL = [[NSBundle mainBundle] URLForResource:@"Splash" withExtension:@"mp4"];
     
     AmeriPrideSalesforceSplashViewController *splashViewController = [[AmeriPrideSalesforceSplashViewController alloc] initWithContentURL:splashURL];
@@ -33,14 +47,6 @@
     
     [self.window setRootViewController:splashViewController];
     [self.window makeKeyAndVisible];
-    
-    NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
-    if (url != nil && [url isFileURL]) {
-        [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
-        [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
-    }
-    
-    return YES;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
