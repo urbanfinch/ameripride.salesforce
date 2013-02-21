@@ -10,22 +10,19 @@
 
 @implementation AmeriPrideSalesforceWebView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+# pragma mark -
+# pragma mark init
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
+        [self setBackgroundColor:[UIColor underPageBackgroundColor]];
+        
+        NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"default" ofType:@"html"];
+        NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
+        [self loadRequest:[NSURLRequest requestWithURL:defaultURL]];
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

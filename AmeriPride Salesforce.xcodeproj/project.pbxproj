@@ -17,6 +17,9 @@
 		4521A3D21662D17F00FF1BB3 /* AmeriPrideSalesforceWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3CD1662D10A00FF1BB3 /* AmeriPrideSalesforceWebViewController.m */; };
 		4521A3DB1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */; };
 		4521A3DD1662D59A00FF1BB3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4521A3DC1662D59A00FF1BB3 /* Settings.bundle */; };
+		4545B5FD16D6B97A00C2095F /* default.html in Resources */ = {isa = PBXBuildFile; fileRef = 4545B5FC16D6B97A00C2095F /* default.html */; };
+		4545B5FF16D6BA6800C2095F /* reset.css in Resources */ = {isa = PBXBuildFile; fileRef = 4545B5FE16D6BA6800C2095F /* reset.css */; };
+		4545B60116D6BD1800C2095F /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4545B60016D6BD1800C2095F /* default.png */; };
 		454B184816CC990C00210347 /* Ameripride320.png in Resources */ = {isa = PBXBuildFile; fileRef = 454B184616CC990C00210347 /* Ameripride320.png */; };
 		454B184916CC990C00210347 /* Ameripride64.png in Resources */ = {isa = PBXBuildFile; fileRef = 454B184716CC990C00210347 /* Ameripride64.png */; };
 		45934EC816642209006F371B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45934EC716642209006F371B /* MessageUI.framework */; };
@@ -66,6 +69,9 @@
 		4521A3D91662D34500FF1BB3 /* AmeriPrideSalesforceWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforceWebView.h; sourceTree = "<group>"; };
 		4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforceWebView.m; sourceTree = "<group>"; };
 		4521A3DC1662D59A00FF1BB3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		4545B5FC16D6B97A00C2095F /* default.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = default.html; sourceTree = "<group>"; };
+		4545B5FE16D6BA6800C2095F /* reset.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = reset.css; sourceTree = "<group>"; };
+		4545B60016D6BD1800C2095F /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		454B184616CC990C00210347 /* Ameripride320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride320.png; sourceTree = "<group>"; };
 		454B184716CC990C00210347 /* Ameripride64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride64.png; sourceTree = "<group>"; };
 		45934EC716642209006F371B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -176,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				45934F1E1667FD96006F371B /* Images */,
+				4545B5FB16D6B95F00C2095F /* HTML */,
 				4521A3DC1662D59A00FF1BB3 /* Settings.bundle */,
 				4521A39B1662CB9900FF1BB3 /* AmeriPride Salesforce-Info.plist */,
 				4521A39C1662CB9900FF1BB3 /* InfoPlist.strings */,
@@ -209,6 +216,16 @@
 				4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		4545B5FB16D6B95F00C2095F /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				4545B60016D6BD1800C2095F /* default.png */,
+				4545B5FC16D6B97A00C2095F /* default.html */,
+				4545B5FE16D6BA6800C2095F /* reset.css */,
+			);
+			name = HTML;
 			sourceTree = "<group>";
 		};
 		45934F1E1667FD96006F371B /* Images */ = {
@@ -352,6 +369,9 @@
 				45DBC04416780FD800B04BAB /* List.png in Resources */,
 				454B184816CC990C00210347 /* Ameripride320.png in Resources */,
 				454B184916CC990C00210347 /* Ameripride64.png in Resources */,
+				4545B5FD16D6B97A00C2095F /* default.html in Resources */,
+				4545B5FF16D6BA6800C2095F /* reset.css in Resources */,
+				4545B60116D6BD1800C2095F /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

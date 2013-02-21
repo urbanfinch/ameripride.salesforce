@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AmeriPrideSalesforceWebView : UIWebView
+@interface AmeriPrideSalesforceWebView : UIWebView <UIWebViewDelegate>
 
 @end
