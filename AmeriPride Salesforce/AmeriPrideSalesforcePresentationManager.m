@@ -68,10 +68,8 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
             
             NSURL *baseURL = [NSURL URLWithString:[packagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
             NSURL *URL = [[baseURL URLByAppendingPathComponent:[presentation filename]] URLByAppendingPathExtension:@"html"];
-            NSURL *PDFURL = [[baseURL URLByAppendingPathComponent:[presentation filename]] URLByAppendingPathExtension:@"pdf"];
-            
+
             [presentation setUrl:URL];
-            [presentation setPdf:PDFURL];
             
             [presentations addObject:presentation];
         }
@@ -97,7 +95,8 @@ static AmeriPrideSalesforcePresentationManager *_defaultManager = nil;
 }
 
 - (NSData *)PDFDataForPresentation {
-    return [NSData dataWithContentsOfFile:[[_presentation pdf] path]];
+    return nil;
+    //return [NSData dataWithContentsOfFile:[[_presentation pdf] path]];
 }
 
 @end

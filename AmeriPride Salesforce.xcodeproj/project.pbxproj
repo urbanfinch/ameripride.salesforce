@@ -20,6 +20,8 @@
 		4545B5FD16D6B97A00C2095F /* default.html in Resources */ = {isa = PBXBuildFile; fileRef = 4545B5FC16D6B97A00C2095F /* default.html */; };
 		4545B5FF16D6BA6800C2095F /* reset.css in Resources */ = {isa = PBXBuildFile; fileRef = 4545B5FE16D6BA6800C2095F /* reset.css */; };
 		4545B60116D6BD1800C2095F /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4545B60016D6BD1800C2095F /* default.png */; };
+		4545B60316D7263500C2095F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4545B60216D7263500C2095F /* QuartzCore.framework */; };
+		4545B60616D82D0700C2095F /* AmeriPrideSalesforcePrintWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4545B60516D82D0700C2095F /* AmeriPrideSalesforcePrintWebView.m */; };
 		454B184816CC990C00210347 /* Ameripride320.png in Resources */ = {isa = PBXBuildFile; fileRef = 454B184616CC990C00210347 /* Ameripride320.png */; };
 		454B184916CC990C00210347 /* Ameripride64.png in Resources */ = {isa = PBXBuildFile; fileRef = 454B184716CC990C00210347 /* Ameripride64.png */; };
 		45934EC816642209006F371B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45934EC716642209006F371B /* MessageUI.framework */; };
@@ -72,6 +74,9 @@
 		4545B5FC16D6B97A00C2095F /* default.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = default.html; sourceTree = "<group>"; };
 		4545B5FE16D6BA6800C2095F /* reset.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = reset.css; sourceTree = "<group>"; };
 		4545B60016D6BD1800C2095F /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		4545B60216D7263500C2095F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4545B60416D82D0700C2095F /* AmeriPrideSalesforcePrintWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmeriPrideSalesforcePrintWebView.h; sourceTree = "<group>"; };
+		4545B60516D82D0700C2095F /* AmeriPrideSalesforcePrintWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmeriPrideSalesforcePrintWebView.m; sourceTree = "<group>"; };
 		454B184616CC990C00210347 /* Ameripride320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride320.png; sourceTree = "<group>"; };
 		454B184716CC990C00210347 /* Ameripride64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ameripride64.png; sourceTree = "<group>"; };
 		45934EC716642209006F371B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -121,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4545B60316D7263500C2095F /* QuartzCore.framework in Frameworks */,
 				4521A3941662CB9900FF1BB3 /* UIKit.framework in Frameworks */,
 				4521A3961662CB9900FF1BB3 /* Foundation.framework in Frameworks */,
 				4521A3981662CB9900FF1BB3 /* CoreGraphics.framework in Frameworks */,
@@ -153,6 +159,7 @@
 		4521A3921662CB9900FF1BB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4545B60216D7263500C2095F /* QuartzCore.framework */,
 				4521A3931662CB9900FF1BB3 /* UIKit.framework */,
 				4521A3951662CB9900FF1BB3 /* Foundation.framework */,
 				4521A3971662CB9900FF1BB3 /* CoreGraphics.framework */,
@@ -214,6 +221,8 @@
 			children = (
 				4521A3D91662D34500FF1BB3 /* AmeriPrideSalesforceWebView.h */,
 				4521A3DA1662D34500FF1BB3 /* AmeriPrideSalesforceWebView.m */,
+				4545B60416D82D0700C2095F /* AmeriPrideSalesforcePrintWebView.h */,
+				4545B60516D82D0700C2095F /* AmeriPrideSalesforcePrintWebView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -412,6 +421,7 @@
 				45B3DB4816CEE09D00003594 /* unzip.c in Sources */,
 				45B3DB4916CEE09D00003594 /* zip.c in Sources */,
 				45B3DB4A16CEE09D00003594 /* ZipArchive.mm in Sources */,
+				4545B60616D82D0700C2095F /* AmeriPrideSalesforcePrintWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

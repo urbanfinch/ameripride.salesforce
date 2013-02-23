@@ -12,6 +12,7 @@
 @implementation AmeriPrideSalesforceWebViewController
 
 @synthesize webView = _webView;
+@synthesize printWebView = _printWebView;
 @synthesize toggleButton = _toggleButton;
 @synthesize actionButton = _actionButton;
 @synthesize actionSheet = _actionSheet;
@@ -26,6 +27,9 @@
     if (self) {
         [self setMasterVisible:NO];
         [self setEditing:NO];
+        
+        AmeriPrideSalesforcePrintWebView *pwv = [[AmeriPrideSalesforcePrintWebView alloc] initWithFrame:CGRectMake(0, 0, 612, 792)];
+        [self setPrintWebView:pwv];
     }
     return self;
 }
@@ -96,7 +100,7 @@
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         [mailViewController setMailComposeDelegate:self];
         [mailViewController setSubject:[presentationManager titleForPresentation]];
-        [mailViewController addAttachmentData:[presentationManager PDFDataForPresentation] mimeType:@"application/pdf" fileName:[[presentationManager titleForPresentation] stringByAppendingPathExtension:@"pdf"]];
+        [mailViewController addAttachmentData:[_printWebView pdfData] mimeType:@"application/pdf" fileName:[[presentationManager titleForPresentation] stringByAppendingPathExtension:@"pdf"]];
         
         [self presentModalViewController:mailViewController animated:YES];
     }
@@ -116,9 +120,11 @@
         UIPrintInfo *printInfo = [UIPrintInfo printInfo];
         printInfo.outputType = UIPrintInfoOutputGeneral;
         printInfo.jobName = [presentationManager titleForPresentation];
+        printInfo.duplex = UIPrintInfoDuplexLongEdge;
         
+        _printInteractionController.showsPageRange = YES;
         _printInteractionController.printInfo = printInfo;
-        _printInteractionController.printingItem = [presentationManager PDFDataForPresentation];
+        _printInteractionController.printingItem = [_printWebView pdfData];
         
         [_printInteractionController presentFromBarButtonItem:_actionButton animated:YES completionHandler:^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
@@ -145,6 +151,7 @@
 - (void)load:(id)sender {
     AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
     
+    [_printWebView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
 }
 
