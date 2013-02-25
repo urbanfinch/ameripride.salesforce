@@ -1,17 +1,17 @@
 //
-//  AmeriPrideSalesforcePresentationTableViewController.h
+//  AmeriPrideSalesforceDocumentTableViewController.h
 //  AmeriPride Salesforce
 //
-//  Created by Aaron C Wright on 12/7/12.
-//  Copyright (c) 2012 Aaron C Wright. All rights reserved.
+//  Created by Aaron C Wright on 2/24/13.
+//  Copyright (c) 2013 Aaron C Wright. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "AmeriPrideSalesforceNotifications.h"
-#import "AmeriPrideSalesforcePresentationManager.h"
-#import "AmeriPrideSalesforcePresentation.h"
+#import "AmeriPrideSalesforceDocumentManager.h"
+#import "AmeriPrideSalesforceDocument.h"
 
-@interface AmeriPrideSalesforcePresentationTableViewController : UITableViewController
+@interface AmeriPrideSalesforceDocumentTableViewController : UITableViewController
 
 @property UIActivityIndicatorView *activityIndicator;
 @property IBOutlet UIBarButtonItem *activityButton;

@@ -25,8 +25,12 @@
     
     NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
     if (url != nil && [url isFileURL]) {
-        [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
-        [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
+        if ([[url pathExtension] isEqualToString:@"appdz"]) {
+            [[AmeriPrideSalesforcePresentationManager defaultManager] openPresentationURL:url];
+        }
+        if ([[url pathExtension] isEqualToString:@"pdf"]) {
+            [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+        }
     }
     
     return YES;
@@ -50,15 +54,27 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
-    [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
+    if (url != nil && [url isFileURL]) {
+        if ([[url pathExtension] isEqualToString:@"appdz"]) {
+            [[AmeriPrideSalesforcePresentationManager defaultManager] openPresentationURL:url];
+        }
+        if ([[url pathExtension] isEqualToString:@"pdf"]) {
+            [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+        }
+    }
     
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
-    [[AmeriPrideSalesforceDocumentManager defaultManager] rebuildDocumentCache];
+    if (url != nil && [url isFileURL]) {
+        if ([[url pathExtension] isEqualToString:@"appdz"]) {
+            [[AmeriPrideSalesforcePresentationManager defaultManager] openPresentationURL:url];
+        }
+        if ([[url pathExtension] isEqualToString:@"pdf"]) {
+            [[AmeriPrideSalesforceDocumentManager defaultManager] openDocumentURL:url];
+        }
+    }
     
     return YES;
 }

@@ -1,14 +1,14 @@
 //
-//  AmeriPrideSalesforcePresentationTableViewController.m
+//  AmeriPrideSalesforceDocumentTableViewController.m
 //  AmeriPride Salesforce
 //
-//  Created by Aaron C Wright on 12/7/12.
-//  Copyright (c) 2012 Aaron C Wright. All rights reserved.
+//  Created by Aaron C Wright on 2/24/13.
+//  Copyright (c) 2013 Aaron C Wright. All rights reserved.
 //
 
-#import "AmeriPrideSalesforcePresentationTableViewController.h"
+#import "AmeriPrideSalesforceDocumentTableViewController.h"
 
-@implementation AmeriPrideSalesforcePresentationTableViewController
+@implementation AmeriPrideSalesforceDocumentTableViewController
 
 @synthesize activityIndicator = _activityIndicator;
 @synthesize activityButton = _activityButton;
@@ -21,9 +21,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reload:)
-                                                 name:AmeriPrideSalesforcePresentationsDidInitializeNotification
+                                                 name:AmeriPrideSalesforceDocumentsDidInitializeNotification
                                                object:nil];
-
+    
     self.clearsSelectionOnViewWillAppear = NO;
 }
 
@@ -45,7 +45,7 @@
     self.navigationBar.topItem.rightBarButtonItem = _activityButton;
     [_activityIndicator startAnimating];
     
-    [[AmeriPrideSalesforcePresentationManager defaultManager] rebuildPresentationCache];
+    [[AmeriPrideSalesforceDocumentManager defaultManager] initialize];
 }
 
 - (void)reload:(id)sender {
@@ -55,7 +55,7 @@
     self.navigationBar.topItem.rightBarButtonItem = _refreshButton;
 }
 
-# pragma mark - 
+# pragma mark -
 # pragma mark UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -65,29 +65,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[AmeriPrideSalesforcePresentationManager defaultManager] presentations] count];
+    return [[[AmeriPrideSalesforceDocumentManager defaultManager] documents] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AmeriPrideSalesforcePresentation *presentation = [[[AmeriPrideSalesforcePresentationManager defaultManager] presentations] objectAtIndex:indexPath.row];
-                              
-    static NSString *CellIdentifier = @"Presentation";
+    AmeriPrideSalesforceDocument *document = [[[AmeriPrideSalesforceDocumentManager defaultManager] documents] objectAtIndex:indexPath.row];
+    
+    static NSString *CellIdentifier = @"Document";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [[cell textLabel] setText:[presentation title]];
+    [[cell textLabel] setText:[document title]];
     
     return cell;
 }
 
-# pragma mark - 
+# pragma mark -
 # pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[AmeriPrideSalesforcePresentationManager defaultManager] setPresentation:[[[AmeriPrideSalesforcePresentationManager defaultManager] presentations] objectAtIndex:indexPath.row]];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforcePresentationChangedNotification object:[NSNumber numberWithInteger:indexPath.row]];
+    [[AmeriPrideSalesforceDocumentManager defaultManager] setDocument:[[[AmeriPrideSalesforceDocumentManager defaultManager] documents] objectAtIndex:indexPath.row]];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceDocumentChangedNotification object:[NSNumber numberWithInteger:indexPath.row]];
 }
 
 @end

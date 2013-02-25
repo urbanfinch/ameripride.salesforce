@@ -16,6 +16,8 @@
 @synthesize toggleButton = _toggleButton;
 @synthesize actionButton = _actionButton;
 @synthesize actionSheet = _actionSheet;
+@synthesize editPopoverController = _editPopoverController;
+@synthesize selectedURL = _selectedURL;
 @synthesize printInteractionController = _printInteractionController;
 @synthesize masterVisible = _masterVisible;
 
@@ -34,15 +36,47 @@
     return self;
 }
 
+- (void)initButtons {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
+        UIImage *editButtonImage = [UIImage imageNamed:@"Pencil"];
+        UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithImage:editButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(showEditPopover:)];
+        self.navigationItem.rightBarButtonItem = editButtonItem;
+    } else {
+        self.navigationItem.rightBarButtonItem = _actionButton;
+    }
+}
+
 # pragma mark -
 # pragma mark awake
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    [self initButtons];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(defaultsChanged:)
+                                                 name:NSUserDefaultsDidChangeNotification
+                                               object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(presentationChanged:)
                                                  name:AmeriPrideSalesforcePresentationChangedNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(documentChanged:)
+                                                 name:AmeriPrideSalesforceDocumentChangedNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(edit:)
+                                                 name:AmeriPrideSalesforceDidToggleEditNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reset:)
+                                                 name:AmeriPrideSalesforceDidRequestEditResetNotification
                                                object:nil];
 }
 
@@ -56,12 +90,31 @@
 # pragma mark -
 # pragma mark notifications
 
-- (void)preferencesChanged:(NSNotification *)notification {
-    [self load:self];
+- (void)defaultsChanged:(NSNotification *)notification {
+    [self initButtons];
 }
 
 - (void)presentationChanged:(NSNotification *)notification {
-    [self load:self];
+    [self loadPresentation:self];
+}
+
+- (void)documentChanged:(NSNotification *)notification {
+    [self loadDocument:self];
+}
+
+# pragma mark -
+# pragma mark popover
+
+- (void)showEditPopover:(id)sender {
+    if ([_editPopoverController isPopoverVisible]) {
+        [_editPopoverController dismissPopoverAnimated:YES];
+    } else {
+        if (!_editPopoverController) {
+            UIViewController *viewControllerForPopover = [self.storyboard instantiateViewControllerWithIdentifier:@"editPopover"];
+            _editPopoverController = [[UIPopoverController alloc] initWithContentViewController:viewControllerForPopover];
+        }
+        [_editPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 # pragma mark -
@@ -81,12 +134,6 @@
         _actionSheet = [[UIActionSheet alloc] init];
         [_actionSheet addButtonWithTitle:@"E-Mail"];
         [_actionSheet addButtonWithTitle:@"Print"];
-        
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
-            [_actionSheet addButtonWithTitle:@"Toggle Editing"];
-            [_actionSheet addButtonWithTitle:@"Reset Editing"];
-        }
-        
         [_actionSheet setDelegate:self];
         [_actionSheet showFromBarButtonItem:sender animated:YES];
     }
@@ -96,11 +143,19 @@
     if ([MFMailComposeViewController canSendMail]) {
         
         AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
+        AmeriPrideSalesforceDocumentManager *documentManager = [AmeriPrideSalesforceDocumentManager defaultManager];
         
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         [mailViewController setMailComposeDelegate:self];
-        [mailViewController setSubject:[presentationManager titleForPresentation]];
-        [mailViewController addAttachmentData:[_printWebView pdfData] mimeType:@"application/pdf" fileName:[[presentationManager titleForPresentation] stringByAppendingPathExtension:@"pdf"]];
+        
+        if ([_selectedURL isEqual:[presentationManager URLForPresentation]]) {
+            [mailViewController setSubject:[presentationManager titleForPresentation]];
+            [mailViewController addAttachmentData:[_printWebView pdfData] mimeType:@"application/pdf" fileName:[[presentationManager titleForPresentation] stringByAppendingPathExtension:@"pdf"]];
+        }
+        if ([_selectedURL isEqual:[documentManager URLForDocument]]) {
+            [mailViewController setSubject:[documentManager titleForDocument]];
+            [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[[documentManager URLForDocument] path]] mimeType:@"application/pdf" fileName:[documentManager titleForDocument]];
+        }
         
         [self presentModalViewController:mailViewController animated:YES];
     }
@@ -116,7 +171,8 @@
         _printInteractionController.delegate = self;
         
         AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
-        
+        AmeriPrideSalesforceDocumentManager *documentManager = [AmeriPrideSalesforceDocumentManager defaultManager];
+
         UIPrintInfo *printInfo = [UIPrintInfo printInfo];
         printInfo.outputType = UIPrintInfoOutputGeneral;
         printInfo.jobName = [presentationManager titleForPresentation];
@@ -124,7 +180,13 @@
         
         _printInteractionController.showsPageRange = YES;
         _printInteractionController.printInfo = printInfo;
-        _printInteractionController.printingItem = [_printWebView pdfData];
+        
+        if ([_selectedURL isEqual:[presentationManager URLForPresentation]]) {
+            _printInteractionController.printingItem = [_printWebView pdfData];
+        }
+        if ([_selectedURL isEqual:[documentManager URLForDocument]]) {
+            _printInteractionController.printingItem = [NSData dataWithContentsOfFile:[[documentManager URLForDocument] path]];
+        }
         
         [_printInteractionController presentFromBarButtonItem:_actionButton animated:YES completionHandler:^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
@@ -144,15 +206,30 @@
     }
 }
 
-- (void)clear:(id)sender {
-    NSLog(@"Clearing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.clear();"]);
+- (void)reset:(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Are you sure?"
+                                                      message:@"This will reset all editing for this presentation."
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"OK", nil];
+    [message show];
 }
 
-- (void)load:(id)sender {
+- (void)loadPresentation:(id)sender {
     AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
     
     [_printWebView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
+    
+    [self setSelectedURL:[presentationManager URLForPresentation]];
+}
+
+- (void)loadDocument:(id)sender {
+    AmeriPrideSalesforceDocumentManager *documentManager = [AmeriPrideSalesforceDocumentManager defaultManager];
+    
+    [_webView loadRequest:[NSURLRequest requestWithURL:[documentManager URLForDocument]]];
+    
+    [self setSelectedURL:[documentManager URLForDocument]];
 }
 
 - (void)toggle:(id)sender {
@@ -175,14 +252,17 @@
         case 1:
             [self print:_actionButton];
             break;
-        case 2:
-            [self edit:_actionButton];
-            break;
-        case 3:
-            [self clear:_actionButton];
-            break;
         default:
             break;
+    }
+}
+
+# pragma mark -
+# pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != 0) {
+        NSLog(@"Resetting... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.clear();"]);
     }
 }
 

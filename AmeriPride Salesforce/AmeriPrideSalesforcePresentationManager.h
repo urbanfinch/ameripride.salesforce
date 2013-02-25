@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AmeriPrideSalesforceNotifications.h"
 #import "AmeriPrideSalesforcePresentation.h"
+#import "ZipArchive.h"
 
 @interface AmeriPrideSalesforcePresentationManager : NSObject
 
@@ -17,10 +18,10 @@
 
 + (AmeriPrideSalesforcePresentationManager *)defaultManager;
 
+- (void)initialize;
+- (void)openPresentationURL:(NSURL *)url;
+- (void)rebuildPresentationCache;
 - (NSString *)titleForPresentation;
 - (NSURL *)URLForPresentation;
-- (NSData *)PDFDataForPresentation;
-
-- (void)initialize;
 
 @end

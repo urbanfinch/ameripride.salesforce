@@ -12,6 +12,9 @@ static AmeriPrideSalesforceDocumentManager *_defaultManager = nil;
 
 @implementation AmeriPrideSalesforceDocumentManager
 
+@synthesize documents = _documents;
+@synthesize document = _document;
+
 # pragma mark -
 # pragma mark init
 
@@ -19,6 +22,7 @@ static AmeriPrideSalesforceDocumentManager *_defaultManager = nil;
     @synchronized(self) {
         if (_defaultManager == nil) {
             _defaultManager = [[AmeriPrideSalesforceDocumentManager alloc] init];
+            [_defaultManager initialize];
         }
     }
     return _defaultManager;
@@ -35,6 +39,36 @@ static AmeriPrideSalesforceDocumentManager *_defaultManager = nil;
 
 + (id)copyWithZone:(NSZone *)zone {
     return self;
+}
+
+- (void)initialize {
+    NSMutableArray *documents = [NSMutableArray array];
+    
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSArray *documentsContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    
+    for (int count = 0; count < (int)[documentsContent count]; count++)
+    {
+        NSString *documentPath = [documentsDirectory stringByAppendingPathComponent:[documentsContent objectAtIndex:count]];
+        
+        if ([[documentPath pathExtension] isEqualToString:@"pdf"]) {
+            AmeriPrideSalesforceDocument *document = [[AmeriPrideSalesforceDocument alloc] init];
+            [document setTitle:[documentPath lastPathComponent]];
+            [document setFilename:[documentPath lastPathComponent]];
+            [document setUrl:[NSURL fileURLWithPath:documentPath]];
+            
+            [documents addObject:document];
+        }
+    }
+    
+    if ([documents count] > 0) {
+        [self setDocuments:[documents copy]];
+    } else {
+        [self setDocuments:[NSArray array]];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceDocumentsDidInitializeNotification object:self];
 }
 
 # pragma mark -
@@ -61,52 +95,20 @@ static AmeriPrideSalesforceDocumentManager *_defaultManager = nil;
         if (![fileManager removeItemAtURL:inboxURL error:&error]) {
             NSLog(@"Could not remove inbox at url: %@ ", inboxURL);
         }
+        
+        [self performSelectorOnMainThread:@selector(initialize) withObject:nil waitUntilDone:NO];
     });
 }
 
 # pragma mark -
-# pragma mark notification
+# pragma mark documents
 
-- (void)postRebuildDocumentCacheNotification {
-    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceCacheRebuildCompleteNotification object:self];
+- (NSString *)titleForDocument {
+    return [_document title];
 }
 
-# pragma mark -
-# pragma mark rebuild
-
-- (void)rebuildDocumentCache {
-    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSFileManager *fileManager = [[NSFileManager alloc] init];
-        NSError *error;
-        
-        NSArray *cachesContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:cachesDirectory error:NULL];
-        for (int count = 0; count < (int)[cachesContent count]; count++)
-        {
-            NSURL *contentURL = [NSURL fileURLWithPath:[cachesDirectory stringByAppendingPathComponent:[cachesContent objectAtIndex:count]]];
-            if (![fileManager removeItemAtURL:contentURL error:&error]) {
-                NSLog(@"Could not remove file at path: %@", contentURL);
-            }
-        }
-        
-        ZipArchive *za = [[ZipArchive alloc] init];
-        
-        NSArray *documentsContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
-        for (int count = 0; count < (int)[documentsContent count]; count++)
-        {
-            if ([[[documentsContent objectAtIndex:count] pathExtension] isEqualToString:@"appdz"]) {
-                NSString *documentPath = [documentsDirectory stringByAppendingPathComponent:[documentsContent objectAtIndex:count]];
-                if ([za UnzipOpenFile:documentPath]) {
-                    [za UnzipFileTo:cachesDirectory overWrite:YES];
-                    [za UnzipCloseFile];
-                }
-            }
-        }
-        
-        [self performSelectorOnMainThread:@selector(postRebuildDocumentCacheNotification) withObject:nil waitUntilDone:NO];
-    });
+- (NSURL *)URLForDocument {
+    return [_document url];
 }
 
 @end

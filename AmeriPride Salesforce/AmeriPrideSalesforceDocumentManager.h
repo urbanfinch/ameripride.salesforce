@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "AmeriPrideSalesforceNotifications.h"
-#import "ZipArchive.h"
+#import "AmeriPrideSalesforceDocument.h"
 
 @interface AmeriPrideSalesforceDocumentManager : NSObject
 
+@property (nonatomic, strong) NSArray *documents;
+@property (nonatomic, strong) AmeriPrideSalesforceDocument *document;
+
 + (AmeriPrideSalesforceDocumentManager *)defaultManager;
 
+- (void)initialize;
 - (void)openDocumentURL:(NSURL *)url;
-- (void)rebuildDocumentCache;
-- (void)postRebuildDocumentCacheNotification;
+- (NSString *)titleForDocument;
+- (NSURL *)URLForDocument;
 
 @end
