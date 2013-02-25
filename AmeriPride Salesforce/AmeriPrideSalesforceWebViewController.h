@@ -20,6 +20,7 @@
 @property (nonatomic, strong) IBOutlet AmeriPrideSalesforcePrintWebView *printWebView;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *toggleButton;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *actionButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *editButton;
 @property (nonatomic, strong) UIActionSheet *actionSheet;
 @property (nonatomic, strong) UIPrintInteractionController *printInteractionController;
 @property (nonatomic, strong) UIPopoverController *editPopoverController;

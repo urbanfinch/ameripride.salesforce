@@ -14,6 +14,18 @@
 @synthesize resetButton = _resetButton;
 
 # pragma mark -
+# pragma mark awake
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(presentationChanged:)
+                                                 name:AmeriPrideSalesforcePresentationChangedNotification
+                                               object:nil];
+}
+
+# pragma mark -
 # pragma mark actions
 
 - (void)toggle:(id)sender {
@@ -22,6 +34,13 @@
 
 - (void)reset:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceDidRequestEditResetNotification object:sender];
+}
+
+# pragma mark -
+# pragma mark notifications
+
+- (void)presentationChanged:(NSNotification *)notification {
+    [_editSwitch setOn:NO animated:NO];
 }
 
 @end

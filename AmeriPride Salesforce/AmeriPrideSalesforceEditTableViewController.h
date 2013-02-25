@@ -17,4 +17,6 @@
 - (IBAction)toggle:(id)sender;
 - (IBAction)reset:(id)sender;
 
+- (void)presentationChanged:(NSNotification *)notification;
+
 @end

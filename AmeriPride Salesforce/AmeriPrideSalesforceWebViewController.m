@@ -15,6 +15,7 @@
 @synthesize printWebView = _printWebView;
 @synthesize toggleButton = _toggleButton;
 @synthesize actionButton = _actionButton;
+@synthesize editButton = _editButton;
 @synthesize actionSheet = _actionSheet;
 @synthesize editPopoverController = _editPopoverController;
 @synthesize selectedURL = _selectedURL;
@@ -38,9 +39,11 @@
 
 - (void)initButtons {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
-        UIImage *editButtonImage = [UIImage imageNamed:@"Pencil"];
-        UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithImage:editButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(showEditPopover:)];
-        self.navigationItem.rightBarButtonItem = editButtonItem;
+        if (!_editButton) {
+            UIImage *editButtonImage = [UIImage imageNamed:@"Pencil"];
+            _editButton = [[UIBarButtonItem alloc] initWithImage:editButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(showEditPopover:)];
+        }
+        self.navigationItem.rightBarButtonItem = _editButton;
     } else {
         self.navigationItem.rightBarButtonItem = _actionButton;
     }
@@ -91,7 +94,19 @@
 # pragma mark notifications
 
 - (void)defaultsChanged:(NSNotification *)notification {
-    [self initButtons];
+    AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
+    AmeriPrideSalesforceDocumentManager *documentManager = [AmeriPrideSalesforceDocumentManager defaultManager];
+
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
+        if ([_selectedURL isEqual:[presentationManager URLForPresentation]]) {
+            self.navigationItem.rightBarButtonItem = _editButton;
+        }
+        if ([_selectedURL isEqual:[documentManager URLForDocument]]) {
+           self.navigationItem.rightBarButtonItem = nil;
+        }
+    } else {
+        self.navigationItem.rightBarButtonItem = _actionButton;
+    }
 }
 
 - (void)presentationChanged:(NSNotification *)notification {
@@ -218,6 +233,12 @@
 - (void)loadPresentation:(id)sender {
     AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
     
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
+        self.navigationItem.rightBarButtonItem = _editButton;
+    } else {
+        self.navigationItem.rightBarButtonItem = _actionButton;
+    }
+    
     [_printWebView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     
@@ -226,6 +247,12 @@
 
 - (void)loadDocument:(id)sender {
     AmeriPrideSalesforceDocumentManager *documentManager = [AmeriPrideSalesforceDocumentManager defaultManager];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
+        self.navigationItem.rightBarButtonItem = nil;
+    } else {
+        self.navigationItem.rightBarButtonItem = _actionButton;
+    }
     
     [_webView loadRequest:[NSURLRequest requestWithURL:[documentManager URLForDocument]]];
     
