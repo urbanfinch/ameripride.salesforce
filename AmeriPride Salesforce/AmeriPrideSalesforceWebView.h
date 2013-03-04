@@ -10,4 +10,6 @@
 
 @interface AmeriPrideSalesforceWebView : UIWebView <UIWebViewDelegate>
 
+- (IBAction)loadDefaultRequest:(id)sender;
+
 @end

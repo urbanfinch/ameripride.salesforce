@@ -17,12 +17,18 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setBackgroundColor:[UIColor underPageBackgroundColor]];
-        
-        NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"default" ofType:@"html"];
-        NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
-        [self loadRequest:[NSURLRequest requestWithURL:defaultURL]];
+        [self loadDefaultRequest:self];
     }
     return self;
+}
+
+# pragma mark -
+# pragma mark actions
+
+- (void)loadDefaultRequest:(id)sender {
+    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"default" ofType:@"html"];
+    NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
+    [self loadRequest:[NSURLRequest requestWithURL:defaultURL]];
 }
 
 @end

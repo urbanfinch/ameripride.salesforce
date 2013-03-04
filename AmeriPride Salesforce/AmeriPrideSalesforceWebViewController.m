@@ -91,6 +91,23 @@
 # pragma mark notifications
 
 - (void)defaultsChanged:(NSNotification *)notification {
+    AmeriPrideSalesforcePresentationManager *presentationManager = [AmeriPrideSalesforcePresentationManager defaultManager];
+    AmeriPrideSalesforceDocumentManager *documentManager = [AmeriPrideSalesforceDocumentManager defaultManager];
+    
+    if ([_editPopoverController isPopoverVisible]) {
+        [_editPopoverController dismissPopoverAnimated:NO];
+    }
+    if (_actionSheet) {
+        [_actionSheet dismissWithClickedButtonIndex:[_actionSheet cancelButtonIndex] animated:NO];
+        _actionSheet = nil;
+    }
+    if ([_selectedURL isEqual:[presentationManager URLForPresentation]]) {
+        [self loadPresentation:self];
+    }
+    if ([_selectedURL isEqual:[documentManager URLForDocument]]) {
+        [self loadDocument:self];
+    }
+    
     [self initButtons];
 }
 
