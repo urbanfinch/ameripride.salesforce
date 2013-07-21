@@ -13,7 +13,7 @@
 
 @synthesize webView = _webView;
 @synthesize printWebView = _printWebView;
-@synthesize toggleButton = _toggleButton;
+@synthesize listButton = _listButton;
 @synthesize actionButton = _actionButton;
 @synthesize editButton = _editButton;
 @synthesize actionSheet = _actionSheet;
@@ -30,6 +30,7 @@
     if (self) {
         [self setMasterVisible:NO];
         [self setEditing:NO];
+        [self setDocument:NO];
         
         AmeriPrideSalesforcePrintWebView *pwv = [[AmeriPrideSalesforcePrintWebView alloc] initWithFrame:CGRectMake(0, 0, 612, 792)];
         [self setPrintWebView:pwv];
@@ -86,8 +87,24 @@
 # pragma mark -
 # pragma mark view
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return (toInterfaceOrientation == (UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight));
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    if ([self document]) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (fromInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+        fromInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        [_listButton setEnabled:NO];
+    } else {
+        [_listButton setEnabled:YES];
+    }
 }
 
 # pragma mark -
@@ -135,6 +152,18 @@
 
 # pragma mark -
 # pragma mark popover
+
+- (void)showListPopover:(id)sender {
+    if ([_listPopoverController isPopoverVisible]) {
+        [_listPopoverController dismissPopoverAnimated:YES];
+    } else {
+        if (!_listPopoverController) {
+            UIViewController *viewControllerForPopover = [self.storyboard instantiateViewControllerWithIdentifier:@"listPopover"];
+            _listPopoverController = [[UIPopoverController alloc] initWithContentViewController:viewControllerForPopover];
+        }
+        [_listPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
 
 - (void)showEditPopover:(id)sender {
     if ([_editPopoverController isPopoverVisible]) {
@@ -258,6 +287,7 @@
     [_printWebView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     
+    [self setDocument:NO];
     [self setSelectedURL:[presentationManager URLForPresentation]];
 }
 
@@ -272,16 +302,8 @@
     
     [_webView loadRequest:[NSURLRequest requestWithURL:[documentManager URLForDocument]]];
     
+    [self setDocument:YES];
     [self setSelectedURL:[documentManager URLForDocument]];
-}
-
-- (void)toggle:(id)sender {
-    UISplitViewController *splitViewController = (UISplitViewController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
-    
-    _masterVisible = !_masterVisible;
-    
-    [splitViewController willRotateToInterfaceOrientation:splitViewController.interfaceOrientation duration:0];
-    [splitViewController.view setNeedsLayout];
 }
 
 # pragma mark -
@@ -314,17 +336,6 @@
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissModalViewControllerAnimated:YES];
-}
-
-# pragma mark -
-# pragma mark UISplitViewDelegate
-
-- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
-    if (_masterVisible) {
-        return NO;
-    } else {
-        return YES;
-    }
 }
 
 @end

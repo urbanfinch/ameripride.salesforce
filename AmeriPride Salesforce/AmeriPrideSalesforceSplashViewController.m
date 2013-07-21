@@ -27,6 +27,14 @@
 # pragma mark -
 # pragma mark view
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -44,11 +52,9 @@
 
 - (void)playbackDidFinish:(NSNotification *)notification {
     UIStoryboard *authStoryboard = [UIStoryboard storyboardWithName:@"AmeriPrideSalesforceStoryboard" bundle:nil];
-    UISplitViewController *splitViewController = [authStoryboard instantiateInitialViewController];
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    splitViewController.delegate = (id)navigationController.topViewController;
+    UINavigationController *navigationController = [authStoryboard instantiateInitialViewController];
     
-    [[[self view] window] setRootViewController:splitViewController];
+    [[[self view] window] setRootViewController:navigationController];
     [[[self view] window] makeKeyAndVisible];
 }
 @end
