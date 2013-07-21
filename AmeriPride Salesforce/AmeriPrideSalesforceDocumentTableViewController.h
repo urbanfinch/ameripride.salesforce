@@ -11,7 +11,7 @@
 #import "AmeriPrideSalesforceDocumentManager.h"
 #import "AmeriPrideSalesforceDocument.h"
 
-@interface AmeriPrideSalesforceDocumentTableViewController : UITableViewController
+@interface AmeriPrideSalesforceDocumentTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property UIActivityIndicatorView *activityIndicator;
 @property IBOutlet UIBarButtonItem *activityButton;

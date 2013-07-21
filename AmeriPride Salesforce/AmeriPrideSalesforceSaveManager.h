@@ -19,6 +19,7 @@
 
 - (void)initialize;
 - (void)writeSave:(AmeriPrideSalesforceSave *)save;
+- (void)removeSaveObjectAtIndex:(NSUInteger)index;
 - (NSString *)pathForSave;
 - (NSString *)titleForSave;
 - (NSURL *)URLForSave;

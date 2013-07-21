@@ -11,7 +11,7 @@
 #import "AmeriPrideSalesforcePresentationManager.h"
 #import "AmeriPrideSalesforcePresentation.h"
 
-@interface AmeriPrideSalesforcePresentationTableViewController : UITableViewController
+@interface AmeriPrideSalesforcePresentationTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property UIActivityIndicatorView *activityIndicator;
 @property IBOutlet UIBarButtonItem *activityButton;

@@ -55,10 +55,18 @@ static AmeriPrideSalesforceSaveManager *_defaultManager = nil;
 }
 
 # pragma mark -
-# pragma mark write
+# pragma mark write / remove
 
 - (void)writeSave:(AmeriPrideSalesforceSave *)save {
     [_saves addObject:save];
+    
+    [NSKeyedArchiver archiveRootObject:_saves toFile:[self pathForSave]];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceSavesDidChangeNotification object:self];
+}
+
+- (void)removeSaveObjectAtIndex:(NSUInteger)index {
+    [_saves removeObjectAtIndex:index];
     
     [NSKeyedArchiver archiveRootObject:_saves toFile:[self pathForSave]];
     

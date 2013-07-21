@@ -42,7 +42,7 @@
 # pragma mark UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self performSelector:@selector(loadData:) withObject:webView afterDelay:1.0];
+    [self performSelector:@selector(loadData:) withObject:webView afterDelay:0.5];
 }
 
 @end

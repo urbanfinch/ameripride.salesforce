@@ -11,14 +11,16 @@
 #import "AmeriPrideSalesforceSaveManager.h"
 #import "AmeriPrideSalesforceSave.h"
 
-@interface AmeriPrideSalesforceSaveTableViewController : UITableViewController
+@interface AmeriPrideSalesforceSaveTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property UIActivityIndicatorView *activityIndicator;
 @property IBOutlet UIBarButtonItem *activityButton;
 @property IBOutlet UIBarButtonItem *refreshButton;
+@property IBOutlet UIBarButtonItem *editButton;
 @property IBOutlet UINavigationBar *navigationBar;
 
 - (IBAction)refresh:(id)sender;
 - (IBAction)reload:(id)sender;
+- (IBAction)edit:(id)sender;
 
 @end

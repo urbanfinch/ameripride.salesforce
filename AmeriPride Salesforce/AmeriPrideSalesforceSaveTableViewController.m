@@ -13,6 +13,7 @@
 @synthesize activityIndicator = _activityIndicator;
 @synthesize activityButton = _activityButton;
 @synthesize refreshButton = _refreshButton;
+@synthesize editButton = _editButton;
 @synthesize navigationBar = _navigationBar;
 
 - (void)viewDidLoad
@@ -54,10 +55,28 @@
 }
 
 - (void)reload:(id)sender {
+    if ([[[AmeriPrideSalesforceSaveManager defaultManager] saves] count] > 0) {
+        [[self editButton] setEnabled:YES];
+        [[self editButton] setTitle:@"Edit"];
+        [[self editButton] setStyle:UIBarButtonItemStylePlain];
+    }
+    
     [self.tableView reloadData];
     
     [_activityIndicator stopAnimating];
     self.navigationBar.topItem.rightBarButtonItem = _refreshButton;
+}
+
+- (void)edit:(id)sender {
+    if ([self.tableView isEditing]) {
+        [self.tableView setEditing:NO animated:YES];
+        [[self editButton] setTitle:@"Edit"];
+        [[self editButton] setStyle:UIBarButtonItemStylePlain];
+    } else {
+        [[self editButton] setTitle:@"Done"];
+        [[self editButton] setStyle:UIBarButtonItemStyleDone];
+        [self.tableView setEditing:YES animated:YES];
+    }
 }
 
 # pragma mark -
@@ -84,6 +103,22 @@
     [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%@ - %@", [save presentation], [save date]]];
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[AmeriPrideSalesforceSaveManager defaultManager] removeSaveObjectAtIndex:indexPath.row];
+        
+        if ([[[AmeriPrideSalesforceSaveManager defaultManager] saves] count] == 0) {
+            [[self editButton] setEnabled:NO];
+            [[self editButton] setTitle:@"Edit"];
+            [[self editButton] setStyle:UIBarButtonItemStylePlain];
+        }
+    }
 }
 
 # pragma mark -
