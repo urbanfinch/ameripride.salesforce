@@ -11,6 +11,9 @@
 
 @interface AmeriPrideSalesforcePrintWebView : UIWebView <UIWebViewDelegate>
 
+@property (nonatomic, strong) NSString *data;
+
 - (NSData *)pdfData;
+- (IBAction)loadData:(id)sender;
 
 @end

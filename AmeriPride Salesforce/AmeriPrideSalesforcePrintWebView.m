@@ -10,6 +10,8 @@
 
 @implementation AmeriPrideSalesforcePrintWebView
 
+@synthesize data = _data;
+
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -42,7 +44,16 @@
     return [pdfData copy];
 }
 
+- (void)loadData:(id)sender {
+    [self stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"presentation.load('%@');", [self data]]];
+}
+
+# pragma mark -
+# pragma mark UIWebViewDelegate
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self performSelector:@selector(loadData:) withObject:webView afterDelay:1.0];
+    
     [self stringByEvaluatingJavaScriptFromString:@"presentation.print();"];
 }
 

@@ -13,6 +13,7 @@
 #import "AmeriPrideSalesforceNotifications.h"
 #import "AmeriPrideSalesforcePresentationManager.h"
 #import "AmeriPrideSalesforceDocumentManager.h"
+#import "AmeriPrideSalesforceSaveManager.h"
 
 @interface AmeriPrideSalesforceWebViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIPrintInteractionControllerDelegate, UIAlertViewDelegate>
 
@@ -26,7 +27,6 @@
 @property (nonatomic, strong) UIPopoverController *listPopoverController;
 @property (nonatomic, strong) UIPopoverController *editPopoverController;
 @property (nonatomic, strong) NSURL *selectedURL;
-@property (nonatomic, assign) BOOL masterVisible;
 @property (nonatomic, assign) BOOL editing;
 @property (nonatomic, assign) BOOL document;
 
@@ -34,6 +34,7 @@
 - (void)defaultsChanged:(NSNotification *)notification;
 - (void)presentationChanged:(NSNotification *)notification;
 - (void)documentChanged:(NSNotification *)notification;
+- (void)saveChanged:(NSNotification *)notification;
 
 - (IBAction)showListPopover:(id)sender;
 - (IBAction)showEditPopover:(id)sender;
@@ -41,8 +42,10 @@
 - (IBAction)email:(id)sender;
 - (IBAction)print:(id)sender;
 - (IBAction)edit:(id)sender;
+- (IBAction)save:(id)sender;
 - (IBAction)reset:(id)sender;
 - (IBAction)loadPresentation:(id)sender;
 - (IBAction)loadDocument:(id)sender;
+- (IBAction)loadSave:(id)sender;
 
 @end

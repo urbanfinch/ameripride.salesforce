@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AmeriPrideSalesforcePresentationManager.h"
 #import "AmeriPrideSalesforceDocumentManager.h"
+#import "AmeriPrideSalesforceSaveManager.h"
 #import "AmeriPrideSalesforceSplashViewController.h"
 #import "AmeriPrideSalesforceWebViewController.h"
 

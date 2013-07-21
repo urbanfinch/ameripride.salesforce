@@ -11,6 +11,7 @@
 @implementation AmeriPrideSalesforceEditTableViewController
 
 @synthesize editSwitch = _editSwitch;
+@synthesize saveButton = _saveButton;
 @synthesize resetButton = _resetButton;
 
 # pragma mark -
@@ -20,8 +21,18 @@
     [super awakeFromNib];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(presentationChanged:)
+                                             selector:@selector(changed:)
                                                  name:AmeriPrideSalesforcePresentationChangedNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changed:)
+                                                 name:AmeriPrideSalesforceDocumentChangedNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changed:)
+                                                 name:AmeriPrideSalesforceSaveChangedNotification
                                                object:nil];
 }
 
@@ -32,6 +43,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceDidToggleEditNotification object:sender];
 }
 
+- (void)save:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceDidRequestEditSaveNotification object:sender];
+}
+
 - (void)reset:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:AmeriPrideSalesforceDidRequestEditResetNotification object:sender];
 }
@@ -39,7 +54,7 @@
 # pragma mark -
 # pragma mark notifications
 
-- (void)presentationChanged:(NSNotification *)notification {
+- (void)changed:(NSNotification *)notification {
     [_editSwitch setOn:NO animated:NO];
 }
 

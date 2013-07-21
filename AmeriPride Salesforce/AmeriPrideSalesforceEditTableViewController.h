@@ -12,11 +12,13 @@
 @interface AmeriPrideSalesforceEditTableViewController : UITableViewController
 
 @property (nonatomic, strong) IBOutlet UISwitch *editSwitch;
+@property (nonatomic, strong) IBOutlet UIButton *saveButton;
 @property (nonatomic, strong) IBOutlet UIButton *resetButton;
 
 - (IBAction)toggle:(id)sender;
+- (IBAction)save:(id)sender;
 - (IBAction)reset:(id)sender;
 
-- (void)presentationChanged:(NSNotification *)notification;
+- (void)changed:(NSNotification *)notification;
 
 @end

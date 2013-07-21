@@ -10,6 +10,9 @@
 
 @interface AmeriPrideSalesforceWebView : UIWebView <UIWebViewDelegate>
 
+@property (nonatomic, strong) NSString *data;
+
 - (IBAction)loadDefaultRequest:(id)sender;
+- (IBAction)loadData:(id)sender;
 
 @end

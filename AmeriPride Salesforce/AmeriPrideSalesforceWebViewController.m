@@ -20,7 +20,6 @@
 @synthesize editPopoverController = _editPopoverController;
 @synthesize selectedURL = _selectedURL;
 @synthesize printInteractionController = _printInteractionController;
-@synthesize masterVisible = _masterVisible;
 
 # pragma mark -
 # pragma mark init
@@ -28,7 +27,6 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self setMasterVisible:NO];
         [self setEditing:NO];
         [self setDocument:NO];
         
@@ -45,6 +43,11 @@
             _editButton = [[UIBarButtonItem alloc] initWithImage:editButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(showEditPopover:)];
         }
         self.navigationItem.rightBarButtonItem = _editButton;
+        if ([[self selectedURL] isEqual:[NSNull null]]) {
+            [_editButton setEnabled:YES];
+        } else {
+            [_editButton setEnabled:NO];
+        }
     } else {
         self.navigationItem.rightBarButtonItem = _actionButton;
     }
@@ -74,8 +77,18 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveChanged:)
+                                                 name:AmeriPrideSalesforceSaveChangedNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(edit:)
                                                  name:AmeriPrideSalesforceDidToggleEditNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(save:)
+                                                 name:AmeriPrideSalesforceDidRequestEditSaveNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -148,6 +161,10 @@
 
 - (void)documentChanged:(NSNotification *)notification {
     [self loadDocument:self];
+}
+
+- (void)saveChanged:(NSNotification *)notification {
+    [self loadSave:self];
 }
 
 # pragma mark -
@@ -256,13 +273,25 @@
     }
 }
 
+- (void)save:(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter title:"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"OK", nil];
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message setTag:1];
+    
+    [message show];
+}
+
 - (void)edit:(id)sender {
-    if (_editing) {
-        [self setEditing:NO];
-         NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit('false');"]);
-    } else {
+    if ([[sender object] isOn]) {
         [self setEditing:YES];
-         NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit('true');"]);
+        NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit('true');"]);
+    } else {
+        [self setEditing:NO];
+        NSLog(@"Editing... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.edit('false');"]);
     }
 }
 
@@ -272,6 +301,7 @@
                                                      delegate:self
                                             cancelButtonTitle:@"Cancel"
                                             otherButtonTitles:@"OK", nil];
+    [message setTag:0];
     [message show];
 }
 
@@ -284,8 +314,13 @@
         self.navigationItem.rightBarButtonItem = _actionButton;
     }
     
+    [_printWebView setData:@""];
+    [_webView setData:@""];
+    
     [_printWebView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
     [_webView loadRequest:[NSURLRequest requestWithURL:[presentationManager URLForPresentation]]];
+    
+    [_editButton setEnabled:YES];
     
     [self setDocument:NO];
     [self setSelectedURL:[presentationManager URLForPresentation]];
@@ -300,10 +335,37 @@
         self.navigationItem.rightBarButtonItem = _actionButton;
     }
     
+    [_printWebView setData:@""];
+    [_webView setData:@""];
+    
     [_webView loadRequest:[NSURLRequest requestWithURL:[documentManager URLForDocument]]];
+    
+    [_editButton setEnabled:NO];
     
     [self setDocument:YES];
     [self setSelectedURL:[documentManager URLForDocument]];
+}
+
+- (void)loadSave:(id)sender {
+    AmeriPrideSalesforceSaveManager *saveManager = [AmeriPrideSalesforceSaveManager defaultManager];
+    AmeriPrideSalesforceSave *save = [saveManager save];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"editMode"]) {
+        self.navigationItem.rightBarButtonItem = _editButton;
+    } else {
+        self.navigationItem.rightBarButtonItem = _actionButton;
+    }
+    
+    [_printWebView setData:[save data]];
+    [_webView setData:[save data]];
+    
+    [_printWebView loadRequest:[NSURLRequest requestWithURL:[save url]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[save url]]];
+    
+    [_editButton setEnabled:YES];
+    
+    [self setDocument:NO];
+    [self setSelectedURL:[save url]];
 }
 
 # pragma mark -
@@ -326,9 +388,45 @@
 # pragma mark UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != 0) {
-        NSLog(@"Resetting... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.clear();"]);
+    if ([alertView tag] == 0) {
+        if (buttonIndex != 0) {
+            NSLog(@"Resetting... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.clear();"]);
+        }
     }
+    if ([alertView tag] == 1) {
+        if (buttonIndex != 0) {
+            NSLog(@"Saving... %@", [_webView stringByEvaluatingJavaScriptFromString:@"presentation.save();"]);
+            
+            NSString *data = [_webView stringByEvaluatingJavaScriptFromString:@"presentation.save();"];
+            NSString *title = [[alertView textFieldAtIndex:0] text];
+            NSString *presentation = [[AmeriPrideSalesforcePresentationManager defaultManager] titleForPresentation];
+            NSURL *url = [[AmeriPrideSalesforcePresentationManager defaultManager] URLForPresentation];
+            
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+            
+            AmeriPrideSalesforceSave *save = [[AmeriPrideSalesforceSave alloc] init];
+            [save setData:data];
+            [save setTitle:title];
+            [save setPresentation:presentation];
+            [save setUrl:url];
+            [save setDate:[dateFormatter stringFromDate:[NSDate date]]];
+            
+            [[AmeriPrideSalesforceSaveManager defaultManager] writeSave:save];
+        }
+    }
+}
+
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
+    if ([alertView tag] == 1) {
+        NSString *inputText = [[alertView textFieldAtIndex:0] text];
+        if([inputText length] > 0) {
+            return YES;
+        } else {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 # pragma mark -
