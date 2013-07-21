@@ -70,7 +70,7 @@ static AmeriPrideSalesforceSaveManager *_defaultManager = nil;
 
 - (NSString *)pathForSave {
     NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filename = [docsPath stringByAppendingPathComponent:@"saves"];
+    NSString *filename = [docsPath stringByAppendingPathComponent:@"Saves"];
     return filename;
 }
 
