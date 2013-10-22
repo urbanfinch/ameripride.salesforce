@@ -234,7 +234,7 @@
             [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[[documentManager URLForDocument] path]] mimeType:@"application/pdf" fileName:[documentManager titleForDocument]];
         }
         
-        [self presentModalViewController:mailViewController animated:YES];
+        [self presentViewController:mailViewController animated:YES completion:NULL];
     }
 }
 
@@ -433,7 +433,7 @@
 # pragma mark MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:NO completion:NULL];
 }
 
 @end

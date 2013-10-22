@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="wGS-ZV-cts">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A584" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="wGS-ZV-cts">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Ameri Pride Salesforce Presentation Table View Controller - Presentations-->
         <scene sceneID="rJ4-Lx-PiS">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="KCA-6q-ojP" customClass="AmeriPrideSalesforcePresentationTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="CqE-L2-1yu">
-                        <rect key="frame" x="0.0" y="20" width="320" height="783"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="CqE-L2-1yu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="blackOpaque" id="H8H-NC-IWS">
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="black" id="H8H-NC-IWS">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
@@ -29,22 +30,22 @@
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Presentation" textLabel="FIm-za-SnB" imageView="o5Y-zy-q5X" rowHeight="50" style="IBUITableViewCellStyleDefault" id="Pfh-HT-j0Z">
                                 <rect key="frame" x="0.0" y="66" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pfh-HT-j0Z" id="h3d-ID-xW3">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIm-za-SnB">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FIm-za-SnB">
+                                            <rect key="frame" x="74" y="0.0" width="231" height="49"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Ameripride.png" id="o5Y-zy-q5X">
-                                            <rect key="frame" x="2" y="2" width="44" height="44"/>
+                                            <rect key="frame" x="15" y="2" width="44" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,11 +68,11 @@
         <scene sceneID="ut5-bo-mcC">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="SbP-Hr-3ML" customClass="AmeriPrideSalesforceSaveTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="3d2-Hw-Jqf">
-                        <rect key="frame" x="0.0" y="20" width="320" height="783"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="3d2-Hw-Jqf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="blackOpaque" id="4w8-jy-fKF">
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="black" id="4w8-jy-fKF">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
@@ -93,27 +94,28 @@
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Save" textLabel="X6m-W6-yQl" detailTextLabel="i6S-Y8-UBi" imageView="ibd-ap-1dR" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="hdQ-bR-VSO">
                                 <rect key="frame" x="0.0" y="66" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hdQ-bR-VSO" id="KWr-we-eLo">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6m-W6-yQl">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X6m-W6-yQl">
+                                            <rect key="frame" x="74" y="6" width="36" height="22"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6S-Y8-UBi">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i6S-Y8-UBi">
+                                            <rect key="frame" x="74" y="28" width="43" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Ameripride.png" id="ibd-ap-1dR">
-                                            <rect key="frame" x="2" y="2" width="44" height="44"/>
+                                            <rect key="frame" x="15" y="2" width="44" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -136,11 +138,11 @@
         <scene sceneID="QJq-R1-hH3">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="my0-Ue-TyU" customClass="AmeriPrideSalesforceDocumentTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="HQL-Gh-0Rc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="783"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="HQL-Gh-0Rc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="blackOpaque" id="veq-wV-2Pu">
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="black" id="veq-wV-2Pu">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
@@ -157,23 +159,22 @@
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Document" textLabel="TSI-Gv-S4I" imageView="uWH-x2-wmX" rowHeight="50" style="IBUITableViewCellStyleDefault" id="MAt-cr-SwD">
                                 <rect key="frame" x="0.0" y="66" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MAt-cr-SwD" id="dug-RO-WVk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TSI-Gv-S4I">
-                                            <rect key="frame" x="56" y="0.0" width="254" height="49"/>
+                                            <rect key="frame" x="74" y="0.0" width="231" height="49"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Ameripride.png" id="uWH-x2-wmX">
-                                            <rect key="frame" x="2" y="2" width="44" height="44"/>
+                                            <rect key="frame" x="15" y="2" width="44" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -195,7 +196,7 @@
         <scene sceneID="EhS-LT-qFq">
             <objects>
                 <tabBarController storyboardIdentifier="listPopover" definesPresentationContext="YES" id="UzN-CN-F9Q" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="lJM-pG-C9A">
@@ -217,10 +218,10 @@
         <scene sceneID="gZu-nF-xWT">
             <objects>
                 <navigationController definesPresentationContext="YES" id="wGS-ZV-cts" customClass="AmeriPrideSalesforceNavigationController" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="oOg-9t-zjZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="oOg-9t-zjZ">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -237,7 +238,7 @@
             <objects>
                 <viewController id="vmm-aa-e8j" customClass="AmeriPrideSalesforceWebViewController" sceneMemberID="viewController">
                     <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="4AL-GD-kKL" customClass="AmeriPrideSalesforceWebView">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -270,7 +271,7 @@
         <scene sceneID="XKJ-XN-1JI">
             <objects>
                 <tableViewController storyboardIdentifier="editPopover" id="v7V-BO-nVr" customClass="AmeriPrideSalesforceEditTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="3Xb-oe-0lO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="3Xb-oe-0lO">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="174"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -278,18 +279,20 @@
                             <tableViewSection id="xuw-gZ-yGc">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Edit" id="ahm-v3-PcI">
-                                        <rect key="frame" x="0.0" y="10" width="300" height="46"/>
+                                        <rect key="frame" x="0.0" y="35" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ahm-v3-PcI" id="OVT-dJ-kVG">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ikb-2n-cbc">
+                                                    <rect key="frame" x="221" y="7" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggle:" destination="v7V-BO-nVr" eventType="valueChanged" id="zMV-Ab-lSe"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edit Presentation:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awG-76-pB4">
+                                                    <rect key="frame" x="30" y="10" width="135" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="135" id="3kI-QD-Eog"/>
                                                         <constraint firstAttribute="height" constant="24" id="KMW-mD-cGZ"/>
@@ -299,13 +302,12 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="ikb-2n-cbc" firstAttribute="centerY" secondItem="ahm-v3-PcI" secondAttribute="centerY" type="default" id="3yE-kL-ALr"/>
-                                            <constraint firstItem="awG-76-pB4" firstAttribute="centerY" secondItem="ikb-2n-cbc" secondAttribute="centerY" type="default" id="Dhc-sk-lFM"/>
-                                            <constraint firstItem="awG-76-pB4" firstAttribute="leading" secondItem="ahm-v3-PcI" secondAttribute="leading" constant="30" id="Imo-Tr-a8H"/>
-                                            <constraint firstAttribute="trailing" secondItem="ikb-2n-cbc" secondAttribute="trailing" constant="30" id="YNR-bI-ang"/>
+                                            <constraint firstItem="awG-76-pB4" firstAttribute="leading" secondItem="ahm-v3-PcI" secondAttribute="leading" constant="30" id="Pro-KU-76r"/>
+                                            <constraint firstItem="ikb-2n-cbc" firstAttribute="centerY" secondItem="ahm-v3-PcI" secondAttribute="centerY" id="dFf-n0-9pj"/>
+                                            <constraint firstAttribute="trailing" secondItem="ikb-2n-cbc" secondAttribute="trailing" constant="30" id="twp-tj-FX2"/>
+                                            <constraint firstItem="awG-76-pB4" firstAttribute="centerY" secondItem="ikb-2n-cbc" secondAttribute="centerY" id="v6R-9T-fLs"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
@@ -313,13 +315,14 @@
                             <tableViewSection id="XjP-yZ-UgF">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Reset" id="bCC-Tl-KxQ">
-                                        <rect key="frame" x="0.0" y="76" width="300" height="45"/>
+                                        <rect key="frame" x="0.0" y="99" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCC-Tl-KxQ" id="jHi-rX-RUs">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veh-Om-fEx">
+                                                    <rect key="frame" x="39" y="8" width="222" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31" id="Zma-1B-D8z"/>
                                                         <constraint firstAttribute="width" constant="222" id="p65-6o-L6u"/>
@@ -328,29 +331,26 @@
                                                     <state key="normal" title="Save Presentation">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
                                                     <connections>
                                                         <action selector="save:" destination="v7V-BO-nVr" eventType="touchUpInside" id="xwG-yk-Ez2"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="Veh-Om-fEx" firstAttribute="centerX" secondItem="bCC-Tl-KxQ" secondAttribute="centerX" type="default" id="5KX-sQ-k2M"/>
-                                            <constraint firstItem="Veh-Om-fEx" firstAttribute="top" secondItem="bCC-Tl-KxQ" secondAttribute="top" constant="8" id="8GT-JM-cEZ"/>
+                                            <constraint firstItem="Veh-Om-fEx" firstAttribute="centerX" secondItem="bCC-Tl-KxQ" secondAttribute="centerX" id="26U-0o-0Gv"/>
+                                            <constraint firstItem="Veh-Om-fEx" firstAttribute="top" secondItem="bCC-Tl-KxQ" secondAttribute="top" constant="8" id="UML-EG-6Gv"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Reset" id="xHZ-0A-xbC">
-                                        <rect key="frame" x="0.0" y="121" width="300" height="45"/>
+                                        <rect key="frame" x="0.0" y="143" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xHZ-0A-xbC" id="yTL-Gc-jbj">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-8X-6R7">
+                                                    <rect key="frame" x="39" y="7" width="222" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31" id="eS6-1B-yJV"/>
                                                         <constraint firstAttribute="width" constant="222" id="iK9-7H-Utr"/>
@@ -359,19 +359,15 @@
                                                     <state key="normal" title="Reset Presentation Editing">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
                                                     <connections>
                                                         <action selector="reset:" destination="v7V-BO-nVr" eventType="touchUpInside" id="jVg-JM-xBK"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="jkr-8X-6R7" firstAttribute="centerX" secondItem="xHZ-0A-xbC" secondAttribute="centerX" type="default" id="6wk-A5-ecl"/>
-                                            <constraint firstItem="jkr-8X-6R7" firstAttribute="centerY" secondItem="xHZ-0A-xbC" secondAttribute="centerY" type="default" id="Qvo-3a-2h4"/>
+                                            <constraint firstItem="jkr-8X-6R7" firstAttribute="centerY" secondItem="xHZ-0A-xbC" secondAttribute="centerY" id="MVY-8K-OKm"/>
+                                            <constraint firstItem="jkr-8X-6R7" firstAttribute="centerX" secondItem="xHZ-0A-xbC" secondAttribute="centerX" id="t6G-Dt-GQq"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
@@ -391,7 +387,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewI-gl-yEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="H78-i1-oum">
+                <navigationBar contentMode="scaleToFill" barStyle="black" id="H78-i1-oum">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
@@ -404,7 +400,7 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="Wi1-ie-fAt">
+                <navigationBar contentMode="scaleToFill" barStyle="black" id="Wi1-ie-fAt">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
@@ -417,7 +413,7 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="oAd-vw-GGd">
+                <navigationBar contentMode="scaleToFill" barStyle="black" id="oAd-vw-GGd">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
@@ -441,93 +437,8 @@
         <image name="List.png" width="20" height="14"/>
         <image name="Screen.png" width="18" height="18"/>
     </resources>
-    <classes>
-        <class className="AmeriPrideSalesforceDocumentTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforceDocumentTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refresh:"/>
-                <relationship kind="action" name="reload:"/>
-                <relationship kind="outlet" name="activityButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="AmeriPrideSalesforceEditTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforceEditTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="reset:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="toggle:"/>
-                <relationship kind="outlet" name="editSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="resetButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="AmeriPrideSalesforceNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforceNavigationController.h"/>
-        </class>
-        <class className="AmeriPrideSalesforcePresentationTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforcePresentationTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refresh:"/>
-                <relationship kind="action" name="reload:"/>
-                <relationship kind="outlet" name="activityButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="AmeriPrideSalesforcePrintWebView" superclassName="UIWebView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforcePrintWebView.h"/>
-            <relationships>
-                <relationship kind="action" name="loadData:"/>
-            </relationships>
-        </class>
-        <class className="AmeriPrideSalesforceSaveTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforceSaveTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="edit:"/>
-                <relationship kind="action" name="refresh:"/>
-                <relationship kind="action" name="reload:"/>
-                <relationship kind="outlet" name="activityButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="AmeriPrideSalesforceWebView" superclassName="UIWebView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforceWebView.h"/>
-            <relationships>
-                <relationship kind="action" name="loadData:"/>
-                <relationship kind="action" name="loadDefaultRequest:"/>
-            </relationships>
-        </class>
-        <class className="AmeriPrideSalesforceWebViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AmeriPrideSalesforceWebViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="action:"/>
-                <relationship kind="action" name="edit:"/>
-                <relationship kind="action" name="email:"/>
-                <relationship kind="action" name="loadDocument:"/>
-                <relationship kind="action" name="loadPresentation:"/>
-                <relationship kind="action" name="loadSave:"/>
-                <relationship kind="action" name="print:"/>
-                <relationship kind="action" name="reset:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="showEditPopover:"/>
-                <relationship kind="action" name="showListPopover:"/>
-                <relationship kind="outlet" name="actionButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="listButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="printWebView" candidateClass="AmeriPrideSalesforcePrintWebView"/>
-                <relationship kind="outlet" name="webView" candidateClass="AmeriPrideSalesforceWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>

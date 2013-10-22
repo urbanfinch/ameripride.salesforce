@@ -399,6 +399,11 @@
 				CLASSPREFIX = AmeriPrideSalesforce;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Aaron C Wright";
+				TargetAttributes = {
+					4521A38E1662CB9800FF1BB3 = {
+						DevelopmentTeam = ZJ8RNU7XYG;
+					};
+				};
 			};
 			buildConfigurationList = 4521A3891662CB9800FF1BB3 /* Build configuration list for PBXProject "AmeriPride Salesforce" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -552,7 +557,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "A63F394D-4EF4-4DE7-86F0-529624D73A7F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A63F394D-4EF4-4DE7-86F0-529624D73A7F";
@@ -577,7 +582,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "4B0C509B-D834-475D-8AAA-FD035E8B8D7E";
 				SDKROOT = iphoneos;
@@ -589,10 +594,11 @@
 		4521A3B41662CB9900FF1BB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = AmeriPride;
 				WRAPPER_EXTENSION = app;
 			};
@@ -601,10 +607,11 @@
 		4521A3B51662CB9900FF1BB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = AmeriPride;
 				WRAPPER_EXTENSION = app;
 			};
