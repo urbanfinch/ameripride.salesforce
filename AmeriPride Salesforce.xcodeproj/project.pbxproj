@@ -619,11 +619,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = AmeriPride;
+				PROVISIONING_PROFILE = "A63F394D-4EF4-4DE7-86F0-529624D73A7F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -631,12 +633,14 @@
 		4521A3B51662CB9900FF1BB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: AmeriPride Services, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: AmeriPride Services, Inc.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmeriPride Salesforce/AmeriPride Salesforce-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AmeriPride Salesforce/AmeriPride Salesforce-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = AmeriPride;
+				PROVISIONING_PROFILE = "4B0C509B-D834-475D-8AAA-FD035E8B8D7E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
