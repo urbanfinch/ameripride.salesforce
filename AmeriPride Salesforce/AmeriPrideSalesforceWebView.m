@@ -18,7 +18,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self setBackgroundColor:[UIColor underPageBackgroundColor]];
+        //[self setBackgroundColor:[UIColor underPageBackgroundColor]];
         [self loadDefaultRequest:self];
         [self setDelegate:self];
     }

@@ -45,10 +45,11 @@
     self.navigationBar.topItem.rightBarButtonItem = _activityButton;
     [_activityIndicator startAnimating];
     
-    [[AmeriPrideSalesforcePresentationManager defaultManager] rebuildPresentationCache];
+    [[AmeriPrideSalesforcePresentationManager defaultManager] downloadPresentation];
 }
 
 - (void)reload:(id)sender {
+    NSLog(@"reloading...");
     [self.tableView reloadData];
     
     [_activityIndicator stopAnimating];
